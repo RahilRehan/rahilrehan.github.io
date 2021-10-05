@@ -13,7 +13,7 @@
       <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://rahilrehan.github.io/projects/a_project/</guid>
-      <description></description>
+      <description>   FEATURES   nice db setup scripts sqlc model and crud generation golang migrate migrations enviroment variable setup in makefile Nice way to implements DB transaction for money transfer  transaction lock and deadlock haldling while updating user account balances       THINGS TO IMPROVE ON   folder structure dependency injection testing coming up with own design(i.e efficiently using golang libraries) Have sections for local setup and production setup implement test suites and test containers Learn concept of deadlock and db transactions in depth, watch video 7 and 8 again  </description>
     </item>
     
   </channel>
