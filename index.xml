@@ -7,6 +7,129 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+    <title>Dependency Injection - Spring</title>
+    <link>https://rahilrehan.github.io/post/dependecy-injection-spring/</link>
+    <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+    <author>Rahil Rehan</author>
+    <guid>https://rahilrehan.github.io/post/dependecy-injection-spring/</guid>
+    <description>
+        &lt;h3 id=&#34;basics&#34;&gt;
+    &lt;a href=&#34;#basics&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Basics
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Spring has lot of modules&lt;/li&gt;
+&lt;li&gt;start.spring.io lists many spring modules which you can configure&lt;/li&gt;
+&lt;li&gt;spring boot is useful to build RESTfull web services. It makes developing spring applications easy by auto configuring default components. It is opinionated framework&lt;/li&gt;
+&lt;li&gt;fat jar -&amp;gt; also includes tomcat. better solution if you want to deploy on cloud platforms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dependency-injection&#34;&gt;
+    &lt;a href=&#34;#dependency-injection&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Dependency Injection
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Assume mail sender example, where we can have mailSender of type SMTP, POPM or MockMail.&lt;/li&gt;
+&lt;li&gt;We can have an interface MailSender which defines the common functionality and we implement the interface in SMTP, POPM or Mock class.&lt;/li&gt;
+&lt;li&gt;**Problem: object creation will be like: **
+&lt;ul&gt;
+&lt;li&gt;private MailSender  = new SMTPMailSender()&lt;/li&gt;
+&lt;li&gt;private MailSender  = new POPMMailSender()&lt;/li&gt;
+&lt;li&gt;private MailSender  = new MockMailSender()&lt;/li&gt;
+&lt;li&gt;we need to hardcode the type while creating object&lt;/li&gt;
+&lt;li&gt;can we automate this?&lt;/li&gt;
+&lt;li&gt;Add @Component annotation to any class which implements MailSender&lt;/li&gt;
+&lt;li&gt;Add @Autowired annotation when creating object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;how does it work:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;When application starts all the beans gets setup
+&lt;ul&gt;
+&lt;li&gt;Beans: annotations at top level, whose object will be created and stored in &lt;em&gt;Application Context&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Beans examples: @Component, @RestController&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;When application is running and when we create objects variables for which we have annotations like @Autowired. Objects which were already created from application context are assigned to current variables.&lt;/li&gt;
+&lt;li&gt;i.e those objects from application context are injected into these variables and hence dependency injection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;@Autowired also works on methods(setters, constructors, getters, any methods..)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multiple beans problem:&lt;/strong&gt; when we create two classes from same interface and add @component annotation to both classes, and create object using interface using @autowired annotation, spring will be confused to choose between beans
+&lt;ul&gt;
+&lt;li&gt;one solution is to use camel-case variable names while creating objects which resemble the name of the class you want (ex: smtpMailSender)&lt;/li&gt;
+&lt;li&gt;you can also add name param to @component -&amp;gt; @component(&amp;ldquo;mockMail&amp;rdquo;), and create object using the name mockMail&lt;/li&gt;
+&lt;li&gt;use extra @primary annotation, the bean which has this will get preference&lt;/li&gt;
+&lt;li&gt;you can also use @qualifier annotation to class, and also use @qualifier in setter or constructor, &amp;hellip;etc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Prefer constructor injection&lt;/li&gt;
+&lt;li&gt;@resource and @inject are similar to @autowired, but @autowired is very powerful, so use @autowired&lt;/li&gt;
+&lt;li&gt;Specializations of @component annotations
+&lt;ul&gt;
+&lt;li&gt;@Controller&lt;/li&gt;
+&lt;li&gt;@Service&lt;/li&gt;
+&lt;li&gt;@Repository&lt;/li&gt;
+&lt;li&gt;@Configuration&lt;/li&gt;
+&lt;li&gt;@SpringBootApplication(scanBasePackageClasses = {default.class, abc.class}) - scans through the package and puts any dependency injection components into application context&lt;/li&gt;
+&lt;li&gt;@RestController&lt;/li&gt;
+&lt;li&gt;&amp;hellip;.. many others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;what if you import a dependency and you have to create object from there, you cannot add @component annotation dependency package
+&lt;ul&gt;
+&lt;li&gt;Create a new config class, which has methods to return objects from the external dependency&lt;/li&gt;
+&lt;li&gt;the new config class must have @Configuration annotation&lt;/li&gt;
+&lt;li&gt;and methods must have @Bean configuration&lt;/li&gt;
+&lt;li&gt;names of the methods can be used for object variable names&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;use @Value annotation to access variables from .properties or .yaml files&lt;/li&gt;
+&lt;li&gt;an external config file takes more preference over internal config(application.properties)&lt;/li&gt;
+&lt;li&gt;**Profiles: **A spring application can be configure to behave differently in different environments using profiles
+&lt;ul&gt;
+&lt;li&gt;ex environments: dev, test, prod&lt;/li&gt;
+&lt;li&gt;provide in application.properties:
+&lt;ul&gt;
+&lt;li&gt;spring.profiles.active: book, dev&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;you can also use particular beans in particular environments!
+&lt;ul&gt;
+&lt;li&gt;just	use @Profile(&amp;ldquo;envName&amp;rdquo;), can accepts bool, !envName&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;@Conditional annotation, include or exclude beans based on arbitrary conditions
+&lt;ul&gt;
+&lt;li&gt;@ConditionalOnClass, OnProperty, OnMissingBean ..etc&lt;/li&gt;
+&lt;li&gt;configure bean based on presence of application property =&amp;gt; @ConditionalOnProperty&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In @Configuration classes, when we try to create same bean again from some method, spring still returns the cached bean only.
+&lt;ul&gt;
+&lt;li&gt;Caching does not happen when we use @Component annotation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Always use @Configuration Classes&lt;/li&gt;
+&lt;/ul&gt;
+
+    </description>
+    </item>
+    
+    <item>
     <title>Microservices Concepts - Java</title>
     <link>https://rahilrehan.github.io/post/microservices-concepts-java/</link>
     <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>

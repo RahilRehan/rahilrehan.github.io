@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Rahil Rehan</title>
-    <link>https://rahilrehan.github.io/post/</link>
-    <description>Recent content in Posts on Rahil Rehan</description>
+    <title>concepts on Rahil Rehan</title>
+    <link>https://rahilrehan.github.io/categories/concepts/</link>
+    <description>Recent content in concepts on Rahil Rehan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/categories/concepts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dependency Injection - Spring</title>
       <link>https://rahilrehan.github.io/post/dependecy-injection-spring/</link>
@@ -14,17 +14,6 @@
       
       <guid>https://rahilrehan.github.io/post/dependecy-injection-spring/</guid>
       <description>Basics   Spring has lot of modules start.spring.io lists many spring modules which you can configure spring boot is useful to build RESTfull web services. It makes developing spring applications easy by auto configuring default components. It is opinionated framework fat jar -&amp;gt; also includes tomcat. better solution if you want to deploy on cloud platforms     Dependency Injection   Assume mail sender example, where we can have mailSender of type SMTP, POPM or MockMail.</description>
-    </item>
-    
-    <item>
-      <title>Microservices Concepts - Java</title>
-      <link>https://rahilrehan.github.io/post/microservices-concepts-java/</link>
-      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rahilrehan.github.io/post/microservices-concepts-java/</guid>
-      <description>Microservices Concepts (Using Java technologies)  In microservices we can have multiple services running, and each service can have multiple instances as well.
-Product service: browse products using rest api Order service: places order Inventory service: checks if product is available in inventory Notification service:
-   Discovery Service   Each service can have multiple instances running and they need to discover each other. As we cannot particularly specify the service as they are multiple instances, referring to different service needs to be generic.</description>
     </item>
     
     <item>

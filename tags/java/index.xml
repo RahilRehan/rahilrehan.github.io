@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dependency Injection - Spring</title>
+      <link>https://rahilrehan.github.io/post/dependecy-injection-spring/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rahilrehan.github.io/post/dependecy-injection-spring/</guid>
+      <description>Basics   Spring has lot of modules start.spring.io lists many spring modules which you can configure spring boot is useful to build RESTfull web services. It makes developing spring applications easy by auto configuring default components. It is opinionated framework fat jar -&amp;gt; also includes tomcat. better solution if you want to deploy on cloud platforms     Dependency Injection   Assume mail sender example, where we can have mailSender of type SMTP, POPM or MockMail.</description>
+    </item>
+    
+    <item>
       <title>Microservices Concepts - Java</title>
       <link>https://rahilrehan.github.io/post/microservices-concepts-java/</link>
       <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>

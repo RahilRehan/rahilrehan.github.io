@@ -14,10 +14,13 @@
     <loc>https://rahilrehan.github.io/categories/</loc>
     <lastmod>2021-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://rahilrehan.github.io/tags/java/</loc>
+    <loc>https://rahilrehan.github.io/categories/concepts/</loc>
     <lastmod>2021-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://rahilrehan.github.io/tags/microservices/</loc>
+    <loc>https://rahilrehan.github.io/post/dependecy-injection-spring/</loc>
+    <lastmod>2021-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rahilrehan.github.io/tags/java/</loc>
     <lastmod>2021-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rahilrehan.github.io/categories/microservices/</loc>
@@ -36,9 +39,6 @@
     <lastmod>2021-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rahilrehan.github.io/tags/testing/</loc>
-    <lastmod>2021-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rahilrehan.github.io/categories/testing/</loc>
     <lastmod>2021-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rahilrehan.github.io/projects/</loc>
