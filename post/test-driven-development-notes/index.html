@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Test Driven Development - Notes | Rahil Rehan</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="Personal Blog" />
+    <meta property="og:title" content="Test Driven Development - Notes | Rahil Rehan"/>
+    <meta itemprop="name" content="Test Driven Development - Notes | Rahil Rehan" />
+    <meta name="twitter:title" content="Test Driven Development - Notes | Rahil Rehan" />
+    <meta name="application-name" content="Test Driven Development - Notes | Rahil Rehan" />
+
+
+    <meta name="description" content="My understanding of TDD and how I do it." />
+    <meta name="twitter:description" content="My understanding of TDD and how I do it. "/>
+    <meta itemprop="description" content=" My understanding of TDD and how I do it. "/>
+    <meta property="og:description" content=" My understanding of TDD and how I do it. " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="Rahil Rehan" />
+<meta property="og:article:published_time" content=2021-10-09T00:00:00Z />
+<meta property="article:published_time" content=2021-10-09T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Rahil rehan" />
+  <meta property="article:author" content="Rahil rehan" />
+  <meta name="author" content="Rahil rehan" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Test Driven Development - Notes",
+    "author": {
+      "@type": "Person",
+      "name": "Rahil Rehan"
+    },
+    "datePublished": "2021-10-09",
+    "description": "My understanding of TDD and how I do it.",
+    "wordCount":  471 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-10-09",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rahil Rehan",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/rahilrehan.github.io\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.dd11f3be48cfdaa9c10fb49890780a9d09a5712371241d8ecb075729bd020ed2.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Rahil Rehan
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Test Driven Development - Notes</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By Rahil Rehan | <time>October 09, 2021</time>
+                            | 3 minutes
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/testing/">testing</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <ul>
+<li>The art of a good night&rsquo;s sleep is knowing you will not get woken by a support call and the piece of mind from being able to confidently change your software in an always moving market. - Nic Jackson</li>
+<li>change in code can have undesirable effect on the other parts, tests helps in making the process of changing code in future easy</li>
+<li>testing pyramid: unit testing(bottom), service/integration(middle), ui/end-end(top)
+<ul>
+<li>test cases should decrease as you go from bottom to top</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="approach">
+    <a href="#approach" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Approach
+</h3>
+<ul>
+<li>Just write test first (use expected function)</li>
+<li>Run and fail the test</li>
+<li>Write minimal code for the test to run and fail</li>
+<li>Write minimal code to make test pass</li>
+<li>Test same function with different values</li>
+<li>Make sure all tests are passing</li>
+<li>Tests for base cases</li>
+<li>Refactor both code and tests</li>
+</ul>
+<h3 id="features-and-scenarios">
+    <a href="#features-and-scenarios" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Features and scenarios
+</h3>
+<ul>
+<li>Given a feature, break it down to scenarios. Each feature is a user story
+<ul>
+<li>Example Feature: As a user when I call the search endpoint, I would like to receive a list of kittens</li>
+<li>Break it down to scenarios
+<ul>
+<li>1st Scenario: Invalid query<br>
+Given I have no search criteria<br>
+When I call the search endpoint<br>
+Then I should receive a bad request message</li>
+<li>and so&hellip; on number of different scenarios</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="uncle-bobs-rules-of-unit-tests">
+    <a href="#uncle-bobs-rules-of-unit-tests" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Uncle bobs, rules of unit tests
+</h3>
+<ul>
+<li>First law: You may not write production code until you have written a failing unit test</li>
+<li>Second law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing</li>
+<li>Third law: You may not write more production code than is sufficient to pass the currently failing test</li>
+</ul>
+<h3 id="naming">
+    <a href="#naming" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Naming
+</h3>
+<ul>
+<li>my convention: TestNameReturnSomethingWhenSomethingHappens
+<ul>
+<li>example:  TestDogHandlerReturnsBadRequestWhenNoSearchCriteriaIsSent</li>
+</ul>
+</li>
+</ul>
+<h3 id="aaa-format-for-testing---arrange-act-assert">
+    <a href="#aaa-format-for-testing---arrange-act-assert" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    AAA format for testing - Arrange, Act, Assert
+</h3>
+<ul>
+<li>I always try to follow this pattern for clean code</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CalculatorTest</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sumOfTwoNumbers</span><span class="o">(){</span>
+		<span class="c1">//Arrange
+</span><span class="c1"></span>		<span class="kt">double</span> <span class="n">first</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span>
+		<span class="kt">double</span> <span class="n">second</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
+		<span class="n">var</span> <span class="n">Calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">();</span>
+
+		<span class="c1">//Act
+</span><span class="c1"></span>		<span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Calc</span><span class="o">.</span><span class="na">Sum</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="n">second</span><span class="o">);</span>
+
+		<span class="c1">//Assert
+</span><span class="c1"></span>		<span class="n">Assert</span><span class="o">.</span><span class="na">Equal</span><span class="o">(</span><span class="n">30</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="concepts">
+    <a href="#concepts" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    concepts
+</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation">Idempotency</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/40297/what-is-a-side-effect">Side effects</a></li>
+<li>A <strong>stub</strong> is a fake class that comes with preprogrammed return values. It’s injected into the class under test to give you absolute control over what’s being tested as input. A typical stub is a database connection that allows you to mimic any scenario without having a real database.</li>
+<li>A <strong>mock</strong> is a fake class that can be examined after the test is finished for its interactions with the class under test. For example, you can ask it whether a method was called or how many times it was called. Typical mocks are classes with side effects that need to be examined, e.g. a class that sends emails or sends data to another external service.</li>
+<li>Learn mocking - <a href="https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit">https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit</a></li>
+<li>Wrapper: something which hides implementation of some other code or internally uses other code.</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        
+        
+        <a rel="next" href="/post/microservices-concepts-java/" title="Next post (newer)">
+            <span>Next</span>
+            Microservices Concepts - Java
+            </a> 
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>
