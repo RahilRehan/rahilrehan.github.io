@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Microservices Concepts - Java | Rahil Rehan</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="Personal Blog" />
+    <meta property="og:title" content="Microservices Concepts - Java | Rahil Rehan"/>
+    <meta itemprop="name" content="Microservices Concepts - Java | Rahil Rehan" />
+    <meta name="twitter:title" content="Microservices Concepts - Java | Rahil Rehan" />
+    <meta name="application-name" content="Microservices Concepts - Java | Rahil Rehan" />
+
+
+    <meta name="description" content="Some important beginner microservices concepts for higher level overview" />
+    <meta name="twitter:description" content="Some important beginner microservices concepts for higher level overview "/>
+    <meta itemprop="description" content=" Some important beginner microservices concepts for higher level overview "/>
+    <meta property="og:description" content=" Some important beginner microservices concepts for higher level overview " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="Rahil Rehan" />
+<meta property="og:article:published_time" content=2021-10-09T00:00:00Z />
+<meta property="article:published_time" content=2021-10-09T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Rahil rehan" />
+  <meta property="article:author" content="Rahil rehan" />
+  <meta name="author" content="Rahil rehan" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Microservices Concepts - Java",
+    "author": {
+      "@type": "Person",
+      "name": "Rahil Rehan"
+    },
+    "datePublished": "2021-10-09",
+    "description": "Some important beginner microservices concepts for higher level overview",
+    "wordCount":  824 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-10-09",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rahil Rehan",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/rahilrehan.github.io\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.dd11f3be48cfdaa9c10fb49890780a9d09a5712371241d8ecb075729bd020ed2.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Rahil Rehan
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Microservices Concepts - Java</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By Rahil Rehan | <time>October 09, 2021</time>
+                            | 4 minutes
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/java/">java</a>
+                            
+                            <a href="/tags/microservices/">microservices</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h2 id="microservices-concepts-using-java-technologies">
+    <a href="#microservices-concepts-using-java-technologies" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Microservices Concepts (Using Java technologies)
+</h2>
+<p>In microservices we can have multiple services running, and each service can have multiple instances as well.</p>
+<p>Product service: browse products using rest api
+Order service: places order
+Inventory service: checks if product is available in inventory
+Notification service:</p>
+<h3 id="discovery-service">
+    <a href="#discovery-service" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Discovery Service
+</h3>
+<ul>
+<li>Each service can have multiple instances running and they need to discover each other.</li>
+<li>As we cannot particularly specify the service as they are multiple instances, referring to different service needs to be generic.</li>
+<li>Referring to one service means to refer to available services.</li>
+<li>In java we can use spring cloud netflix eureka</li>
+</ul>
+<h3 id="centralized-configuration">
+    <a href="#centralized-configuration" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Centralized configuration
+</h3>
+<ul>
+<li>If we change a config variable in code, we need to make change to code, compile and re-deploy it again.</li>
+<li>If we have multiple instances of same service then it becomes hard as we need to take down those services as well .</li>
+<li>Solution: Use a centralized config server</li>
+<li>Store all config variables of different services in different files in a git repository or local store.</li>
+<li>Whenever there is change in these files, config server will have new config variables.</li>
+<li>Now to refresh all the config variables in runtime, you need to call to some api actuator which will refresh the config variables in that service and all its instances.</li>
+<li>In Java Central config server with automatic refresh</li>
+</ul>
+<h3 id="storing-secrets-in-vault">
+    <a href="#storing-secrets-in-vault" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Storing secrets in vault
+</h3>
+<ul>
+<li>usernames, passwords, database links etc have to be hidden from configuration</li>
+<li>We have to install vault in our system or via docker, starting vault will start a server as well.</li>
+<li>Save all the secrets in vault.</li>
+<li>In Java we can use Spring starter vault config to use secrets in our code.</li>
+<li>It&rsquo;s enough just to connect to vault server and all the secrets are made available to the service.</li>
+</ul>
+<h3 id="message-broker">
+    <a href="#message-broker" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Message Broker
+</h3>
+<ul>
+<li>One service might depend on other service, change in config variable of one service may effect the other.</li>
+<li>We can use message broker like RabbitMQ, which broadcast that there is some change in config to other services which are subscribed to that service which has changes.</li>
+<li>RabbitMQ must be installed on the host system and runs on some host and port.</li>
+<li>RabbitMQ in infra?</li>
+</ul>
+<h3 id="api-gateway">
+    <a href="#api-gateway" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    API gateway
+</h3>
+<ul>
+<li>We may have different services in our application.</li>
+<li>Each service may handle different endpoints.</li>
+<li>API gateway, receives a uri request from clients.</li>
+<li>It redirects the client to correct service.</li>
+<li>It acts like a central endpoint distributer.</li>
+<li>We can attach load balancers to each service as well.</li>
+<li>Authentication, monitoring and rete limiting can also be taken care here.</li>
+<li>API gateway is also a service and should be present in discovery service.</li>
+<li>In Java, spring cloud gateway</li>
+</ul>
+<h3 id="sercuring-server-with-authentication-and-authorization">
+    <a href="#sercuring-server-with-authentication-and-authorization" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Sercuring server with authentication and authorization
+</h3>
+<ul>
+<li>Run keycloak on host machine, it will start at some port</li>
+<li>token relay:
+<ul>
+<li>If authentication is done by token, using keycloak as we will be authorizing at api gateway, we need to send this token to the respective gateway as well.</li>
+</ul>
+</li>
+<li>In Java, use Keycloak</li>
+</ul>
+<h3 id="resilience">
+    <a href="#resilience" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Resilience
+</h3>
+<ul>
+<li>Order service asynchronously communicates with Inventory service</li>
+<li>Inventory service can go down, so we need to make it resilient</li>
+<li>RequestInterceptor:
+<ul>
+<li>When one service is speaking to other, authentication token is not sent. Because, it is not token relay mechanism.</li>
+<li>For passing auth token, we need to get the token and append it to authorization bearer in the request header and then send the request to service.</li>
+</ul>
+</li>
+<li>Definition: watch for service outages and network latencies and temporarily stop the service until service starts functioning normally again .</li>
+<li>In Java, Resilience4g or hystrix(netflix - not maintained right now)</li>
+</ul>
+<h3 id="event-driven-microservices-architecture">
+    <a href="#event-driven-microservices-architecture" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Event driven microservices architecture
+</h3>
+<ul>
+<li>When order is placed, order service broadcasts message to notification service via RabbitMQ.</li>
+<li>Use rabbitMQ binders to listen for events
+<ul>
+<li>output binders: to send notifications</li>
+<li>input binders: to receive notifications</li>
+</ul>
+</li>
+</ul>
+<h3 id="distributed-tracing">
+    <a href="#distributed-tracing" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Distributed tracing
+</h3>
+<ul>
+<li>microservices pattern  allows us to track the requests from one microservice to other.</li>
+<li>We give unique id along the journey of the request</li>
+<li>each request has same trace id along its journey</li>
+<li>but when there is a circuit breaker in between, trace id changes as circuit breaker spawns a new thread. But there is a workaround to keep our trace id same(traceableExecuterService in Java)</li>
+<li>In java, we use spring cloud sleuth and zipkin</li>
+</ul>
+<h3 id="centralized-logging">
+    <a href="#centralized-logging" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Centralized logging
+</h3>
+<ul>
+<li>logs are all over different services</li>
+<li>place all logs in a centralized manner</li>
+<li>First we need to use some logging library at each service like log4J or logback</li>
+<li>beware of security issues while logging</li>
+<li>In java (ELK stack is popular -&gt; elastic search, logstash and kibana)
+<ul>
+<li>logstash: application services send logs to logstash over tcp. these logs are then sent from logstash to elastic search.
+<ul>
+<li>phases:	(configure in logstash.conf)
+<ul>
+<li>input: from services using tcp or ftp or rabbitMQ</li>
+<li>filter: filter logs</li>
+<li>output: send to elastic search</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elastic search(search engine implementation in java): Used to store logs
+<ul>
+<li>Each service has its own index in elastic search</li>
+</ul>
+</li>
+<li>Kibana: Visualize, Query and filter elastic search data</li>
+</ul>
+</li>
+</ul>
+<h3 id="end">
+    <a href="#end" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    End
+</h3>
+<ul>
+<li>Do not use microservice architecture unless there is a need. Monoliths are best in most cases.</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

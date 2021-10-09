@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>backend on Rahil Rehan</title>
+    <link>https://rahilrehan.github.io/categories/backend/</link>
+    <description>Recent content in backend on Rahil Rehan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/categories/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservices Concepts - Java</title>
+      <link>https://rahilrehan.github.io/post/microservices-concepts-java/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rahilrehan.github.io/post/microservices-concepts-java/</guid>
+      <description>Microservices Concepts (Using Java technologies)  In microservices we can have multiple services running, and each service can have multiple instances as well.
+Product service: browse products using rest api Order service: places order Inventory service: checks if product is available in inventory Notification service:
+   Discovery Service   Each service can have multiple instances running and they need to discover each other. As we cannot particularly specify the service as they are multiple instances, referring to different service needs to be generic.</description>
+    </item>
+    
+  </channel>
+</rss>
