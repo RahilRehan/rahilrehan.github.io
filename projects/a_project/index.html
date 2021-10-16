@@ -85,7 +85,7 @@
                               
                             
                             By Rahil Rehan | <time>October 05, 2021</time>
-                            | 1 minutes
+                            | 2 minutes
                         </div>
                         <div class="tags">
                             
@@ -97,48 +97,105 @@
     </article>
 
     <div class="article-post">
-    <h2 id="features">
-    <a href="#features" class="anchor">
+    <h1 id="banco---a-crude-bank-backend-api">
+    <a href="#banco---a-crude-bank-backend-api" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    FEATURES
+    BANCO - A crude bank backend API
+</h1>
+<p><a href="https://github.com/RahilRehan/banco">Project Link</a></p>
+<h2 id="functionality">
+    <a href="#functionality" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    FUNCTIONALITY
 </h2>
 <ul>
-<li>nice db setup scripts</li>
-<li>sqlc model and crud generation</li>
-<li>golang migrate migrations</li>
-<li>environment variable setup in makefile</li>
+<li>Create User in the banco system
+<ul>
+<li>Each user can create multiple accounts, but accounts must have different currency</li>
+<li>Only user, authenticated into banco system can manage their accounts(create, list, update, delete - CRUD)</li>
+</ul>
+</li>
+<li>Transactions - money can be transferred from one user account to other
+<ul>
+<li>To perform transaction, user must be authenticated into banco system</li>
+<li>User can only send money from their account</li>
+<li>Transaction can only take place between accounts of same currency</li>
+<li>Each transaction is consistent</li>
+</ul>
+</li>
+</ul>
+<h2 id="db-designarchitecture">
+    <a href="#db-designarchitecture" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    DB design/architecture
+</h2>
+<p><img loading="lazy" 
+    src="/db.png" 
+    alt="Image" 
+     
+    width=2798 
+    height="1382"  /></p>
+<h2 id="technical-details">
+    <a href="#technical-details" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    TECHNICAL DETAILS
+</h2>
+<ul>
+<li>Database setup scripts in <code>scripts/db.sh</code></li>
+<li>SQLC to generate models and crud code</li>
+<li>golang-migrate for migrations</li>
+<li>environment variable setup in makefile (best practice)</li>
 <li>Nice way to implements DB transaction for money transfer
 <ul>
 <li>transaction lock and deadlock handling while updating user account balances</li>
+<li>For each transaction</li>
+<li>transfer details are stored in transfer table(fromAccount, toAccount, amount)</li>
+<li>Two entries created in entry table, how much money got added/deducted from toAccount and fromAccount</li>
+<li>Update account balance of fromAccount and toAccount</li>
 </ul>
 </li>
-<li>unit testing, integration tests</li>
-<li>mocking</li>
-</ul>
-<h2 id="things-to-improve-on">
-    <a href="#things-to-improve-on" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    THINGS TO IMPROVE ON
-</h2>
+<li>Testing
 <ul>
-<li>folder structure</li>
-<li>dependency injection</li>
-<li>testing</li>
-<li>coming up with own design(i.e efficiently using golang libraries)</li>
-<li>Have sections for local setup and production setup</li>
-<li>implement test suites and test containers</li>
-<li>Learn concept of deadlock and db transactions in depth, watch video 7 and 8 again</li>
-<li>db config for viper can be grouped into one struct</li>
+<li>Unit tests</li>
+<li>Integration tests</li>
+<li>testing via mocking (dependency injection - db layer is injected into api layer)</li>
+<li>go-mockery is used for mocking</li>
+<li>Test containers are used to run integration tests</li>
+<li>There is no service layer, as it seems to be a little overkill for this project.</li>
+</ul>
+</li>
+<li>In api request - custom param validator (used reflection)</li>
+<li>User password encryption using bcrypt</li>
+<li>Use Paseto based user authentication
+<ul>
+<li>JWT authentication code is also present</li>
+<li>Interface is used for Token based authentication</li>
+<li>So, you can easily replace Paseto with JWT</li>
+</ul>
+</li>
+<li>Github Actions is used as Pipeline</li>
+<li>Docker and docker compose setup</li>
+<li>Pushing latest images to digital oceans private registry on push</li>
 </ul>
 
     </div>

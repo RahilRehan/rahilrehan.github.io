@@ -13,7 +13,8 @@
       <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rahilrehan.github.io/projects/a_project/</guid>
-      <description>   FEATURES   nice db setup scripts sqlc model and crud generation golang migrate migrations environment variable setup in makefile Nice way to implements DB transaction for money transfer  transaction lock and deadlock handling while updating user account balances   unit testing, integration tests mocking     THINGS TO IMPROVE ON   folder structure dependency injection testing coming up with own design(i.e efficiently using golang libraries) Have sections for local setup and production setup implement test suites and test containers Learn concept of deadlock and db transactions in depth, watch video 7 and 8 again db config for viper can be grouped into one struct  </description>
+      <description>BANCO - A crude bank backend API  Project Link
+   FUNCTIONALITY   Create User in the banco system  Each user can create multiple accounts, but accounts must have different currency Only user, authenticated into banco system can manage their accounts(create, list, update, delete - CRUD)   Transactions - money can be transferred from one user account to other  To perform transaction, user must be authenticated into banco system User can only send money from their account Transaction can only take place between accounts of same currency Each transaction is consistent       DB design/architecture     TECHNICAL DETAILS   Database setup scripts in scripts/db.</description>
     </item>
     
   </channel>
