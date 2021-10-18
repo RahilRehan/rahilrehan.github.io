@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software engineering on Rahil Rehan</title>
+    <link>https://rahilrehan.github.io/tags/software-engineering/</link>
+    <description>Recent content in software engineering on Rahil Rehan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Development Lifecycle</title>
+      <link>https://rahilrehan.github.io/post/software-engineering-lifecycle/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rahilrehan.github.io/post/software-engineering-lifecycle/</guid>
+      <description>What is Software Development/Engineering?  Software engineering is defined as the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software. - IEEE&amp;rsquo;s Standard Glossary
+Software devlopment is not just writing code, its about writing clean, understandable and maintainable code. And there are many other things involved in software development process. Things like requiremnt gathering, planning, desinging, testing, releasing and later maintaining. These aspects are also very important!</description>
+    </item>
+    
+  </channel>
+</rss>

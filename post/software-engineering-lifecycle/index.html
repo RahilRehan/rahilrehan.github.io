@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Software Development Lifecycle | Rahil Rehan</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="Personal Blog" />
+    <meta property="og:title" content="Software Development Lifecycle | Rahil Rehan"/>
+    <meta itemprop="name" content="Software Development Lifecycle | Rahil Rehan" />
+    <meta name="twitter:title" content="Software Development Lifecycle | Rahil Rehan" />
+    <meta name="application-name" content="Software Development Lifecycle | Rahil Rehan" />
+
+
+    <meta name="description" content="Software Development Lifecycle and different approaches" />
+    <meta name="twitter:description" content="Software Development Lifecycle and different approaches "/>
+    <meta itemprop="description" content=" Software Development Lifecycle and different approaches "/>
+    <meta property="og:description" content=" Software Development Lifecycle and different approaches " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="Rahil Rehan" />
+<meta property="og:article:published_time" content=2021-10-18T00:00:00Z />
+<meta property="article:published_time" content=2021-10-18T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Rahil rehan" />
+  <meta property="article:author" content="Rahil rehan" />
+  <meta name="author" content="Rahil rehan" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Software Development Lifecycle",
+    "author": {
+      "@type": "Person",
+      "name": "Rahil Rehan"
+    },
+    "datePublished": "2021-10-18",
+    "description": "Software Development Lifecycle and different approaches",
+    "wordCount":  704 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-10-18",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rahil Rehan",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/rahilrehan.github.io\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.dd11f3be48cfdaa9c10fb49890780a9d09a5712371241d8ecb075729bd020ed2.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Rahil Rehan
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Software Development Lifecycle</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By Rahil Rehan | <time>October 18, 2021</time>
+                            | 4 minutes
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/software-engineering/">software engineering</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h2 id="what-is-software-developmentengineering">
+    <a href="#what-is-software-developmentengineering" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    What is Software Development/Engineering?
+</h2>
+<p><em>Software engineering is defined as the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software.</em> - IEEE&rsquo;s Standard Glossary</p>
+<p>Software devlopment is not just writing code, its about writing clean, understandable and maintainable code. And there are many other things involved in software development process. Things like requiremnt gathering, planning, desinging, testing, releasing and later maintaining. These aspects are also very important!</p>
+<p>Like Martin Fowler said,  “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”</p>
+<h3 id="types-of-software-engineers">
+    <a href="#types-of-software-engineers" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Types of software engineers:
+</h3>
+<p>SDE(Software development engineer) - A common term used to represent an umbrella of professions.</p>
+<ul>
+<li>Frontend engineers: Folks who deal with visual components of the product.</li>
+<li>Backend engineers: Folks who deal with internal system components providing an abstraction in form of APIs which frontend engineers can use.</li>
+<li>Fullstack engineers: Combination of both of the above roles.</li>
+<li>System Architect: The system designer, makes sure the systems design is good .</li>
+<li>SDET(tester): One who test the whole system for bugs and acceptance critereas.
+<ul>
+<li>In some companies testing is part of development process, so this role is played by SDE itself. Ex: in TDD</li>
+</ul>
+</li>
+<li>Operations engineer: Deals with releasing the product to market. Deployment and stuff.</li>
+<li>SRE - Site reliability engineers: Folks who work both on development teams and operations teams(release teams)</li>
+<li>Devops engineer: Acts as a middleman between devolopment teams and operations team. It&rsquo;s more of a culture. So, some companies may not have this role at all.</li>
+</ul>
+<h3 id="testing">
+    <a href="#testing" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Testing
+</h3>
+<ul>
+<li>Acceptance tests: end-to-end tests to ensure the whole system adheres to business requirements.</li>
+<li>Performance, Load, Regression testing: Even though all the test cases pass, system has to be performant, should be able to handle load etc. These tests evaluate above metrics.</li>
+</ul>
+<h2 id="software-development-models">
+    <a href="#software-development-models" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Software Development Models:
+</h2>
+<h3 id="waterfall-model">
+    <a href="#waterfall-model" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Waterfall model:
+</h3>
+<p>Steps in waterfall model:</p>
+<ol>
+<li>Requirement collection (customer requirement)</li>
+<li>Desgin (design system accordingly)</li>
+<li>Implementation (build system)</li>
+<li>Verification (verify if the product meets the initial requriements)</li>
+<li>Maintenance (Maintain the project)</li>
+</ol>
+<p>In this model we assume that all requirements are collected before implementation (which is almost never the case!)</p>
+<h3 id="iterative-model">
+    <a href="#iterative-model" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Iterative Model:
+</h3>
+<p>Steps in iterative model:</p>
+<ol>
+<li>Requirement collection</li>
+<li>Design</li>
+<li>Implement</li>
+<li>Verify</li>
+<li>Jump to 1st step(and repeat)</li>
+</ol>
+<ul>
+<li>Repeat this until the customer is satisfied ^^</li>
+<li>Problem from waterfall model is solved!</li>
+</ul>
+<h3 id="agile">
+    <a href="#agile" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Agile!
+</h3>
+<ul>
+<li>Agile itself is not a model, it is an umbrella term.</li>
+<li>Agile way says,
+<ul>
+<li>we have to build software in iterative, incrementing, short cycles.</li>
+<li>Intra-team(cross-team) communication is key to reduce conflicts in future.</li>
+</ul>
+</li>
+</ul>
+<h3 id="some-models-of-agile">
+    <a href="#some-models-of-agile" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Some models of agile:
+</h3>
+<h4 id="lean-developmentcopied-from-wiki">
+    <a href="#lean-developmentcopied-from-wiki" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Lean development:[copied from wiki]
+</h4>
+<ol>
+<li>Eliminate waste : do not add anything which is not required.</li>
+<li>Amplify learning: gather requirments constantly, share knowledge among teams.</li>
+<li>Decide as late as possible: conter-intuitive? nah, just don&rsquo;t commit early.</li>
+<li>Deliver ASAP: the faster the deliver, the faster the feedback and faster the cycle repeats.</li>
+<li>Empower the team: Important.</li>
+<li>Optimize the whole: Always think about how the system works on the whole.</li>
+</ol>
+<h4 id="scrum">
+    <a href="#scrum" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    SCRUM!!
+</h4>
+<ul>
+<li>The whole project is broken down into chunks.</li>
+<li>Each chunk is divided such that it can be completed in 2-4 weeks.</li>
+<li>And this timeframe to complete a chuck is called <code>sprint</code>.</li>
+<li>Each chunk of work is again divided into tasks which people can pickup and complete.</li>
+<li>Number of tasks completed in a sprint gives teams <code>velocity</code>.</li>
+<li>Balance the velocity, it shouldn&rsquo;t be too high(easy tasks) or too low(hard tasks).</li>
+<li>The tasks which are not completed(spillovers) are again put into next sprint.</li>
+<li>Scrum events:
+<ul>
+<li>Planning - Initial planning of whole project</li>
+<li>Estimation - Splitting into chunks</li>
+<li>Daily standups - Daily updates(what was done yesterday, what will be done today, any blockers?) - each team member talks about these three points in short.</li>
+<li>Retrospection - After each sprint, what went well and what can be improved must be discussed among team. And actions items have to be planned accordingly.</li>
+</ul>
+</li>
+</ul>
+<h4 id="kanban">
+    <a href="#kanban" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Kanban
+</h4>
+<ul>
+<li>A board style todo-list.</li>
+<li>Contains lanes
+<ul>
+<li>TODO/Backlog</li>
+<li>Doing</li>
+<li>Review</li>
+<li>Done</li>
+</ul>
+</li>
+<li>More lanes can be added according to teams need and style</li>
+<li>Ex: Trello</li>
+</ul>
+<h4 id="devops">
+    <a href="#devops" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Devops!
+</h4>
+<ul>
+<li>Popular!</li>
+<li>People are switching to microservice architecture.</li>
+<li>As number of services increase in microservice architecture, each team which is responsible for a service owns the service. Hence, team should also be involved in operations related tasks!</li>
+<li>Devops itself has become a new role now-a-days. It was just a culture before&hellip;</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/dependecy-injection-spring/" title="Previous post (older)">
+            <span>Previous</span>
+            Dependency Injection - Spring
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

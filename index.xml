@@ -5,7 +5,234 @@
     <description>Recent content on Rahil Rehan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+    <title>Software Development Lifecycle</title>
+    <link>https://rahilrehan.github.io/post/software-engineering-lifecycle/</link>
+    <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+    <author>Rahil Rehan</author>
+    <guid>https://rahilrehan.github.io/post/software-engineering-lifecycle/</guid>
+    <description>
+        &lt;h2 id=&#34;what-is-software-developmentengineering&#34;&gt;
+    &lt;a href=&#34;#what-is-software-developmentengineering&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    What is Software Development/Engineering?
+&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Software engineering is defined as the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software.&lt;/em&gt; - IEEE&amp;rsquo;s Standard Glossary&lt;/p&gt;
+&lt;p&gt;Software devlopment is not just writing code, its about writing clean, understandable and maintainable code. And there are many other things involved in software development process. Things like requiremnt gathering, planning, desinging, testing, releasing and later maintaining. These aspects are also very important!&lt;/p&gt;
+&lt;p&gt;Like Martin Fowler said,  “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”&lt;/p&gt;
+&lt;h3 id=&#34;types-of-software-engineers&#34;&gt;
+    &lt;a href=&#34;#types-of-software-engineers&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Types of software engineers:
+&lt;/h3&gt;
+&lt;p&gt;SDE(Software development engineer) - A common term used to represent an umbrella of professions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Frontend engineers: Folks who deal with visual components of the product.&lt;/li&gt;
+&lt;li&gt;Backend engineers: Folks who deal with internal system components providing an abstraction in form of APIs which frontend engineers can use.&lt;/li&gt;
+&lt;li&gt;Fullstack engineers: Combination of both of the above roles.&lt;/li&gt;
+&lt;li&gt;System Architect: The system designer, makes sure the systems design is good .&lt;/li&gt;
+&lt;li&gt;SDET(tester): One who test the whole system for bugs and acceptance critereas.
+&lt;ul&gt;
+&lt;li&gt;In some companies testing is part of development process, so this role is played by SDE itself. Ex: in TDD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Operations engineer: Deals with releasing the product to market. Deployment and stuff.&lt;/li&gt;
+&lt;li&gt;SRE - Site reliability engineers: Folks who work both on development teams and operations teams(release teams)&lt;/li&gt;
+&lt;li&gt;Devops engineer: Acts as a middleman between devolopment teams and operations team. It&amp;rsquo;s more of a culture. So, some companies may not have this role at all.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;testing&#34;&gt;
+    &lt;a href=&#34;#testing&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Testing
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Acceptance tests: end-to-end tests to ensure the whole system adheres to business requirements.&lt;/li&gt;
+&lt;li&gt;Performance, Load, Regression testing: Even though all the test cases pass, system has to be performant, should be able to handle load etc. These tests evaluate above metrics.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;software-development-models&#34;&gt;
+    &lt;a href=&#34;#software-development-models&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Software Development Models:
+&lt;/h2&gt;
+&lt;h3 id=&#34;waterfall-model&#34;&gt;
+    &lt;a href=&#34;#waterfall-model&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Waterfall model:
+&lt;/h3&gt;
+&lt;p&gt;Steps in waterfall model:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Requirement collection (customer requirement)&lt;/li&gt;
+&lt;li&gt;Desgin (design system accordingly)&lt;/li&gt;
+&lt;li&gt;Implementation (build system)&lt;/li&gt;
+&lt;li&gt;Verification (verify if the product meets the initial requriements)&lt;/li&gt;
+&lt;li&gt;Maintenance (Maintain the project)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In this model we assume that all requirements are collected before implementation (which is almost never the case!)&lt;/p&gt;
+&lt;h3 id=&#34;iterative-model&#34;&gt;
+    &lt;a href=&#34;#iterative-model&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Iterative Model:
+&lt;/h3&gt;
+&lt;p&gt;Steps in iterative model:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Requirement collection&lt;/li&gt;
+&lt;li&gt;Design&lt;/li&gt;
+&lt;li&gt;Implement&lt;/li&gt;
+&lt;li&gt;Verify&lt;/li&gt;
+&lt;li&gt;Jump to 1st step(and repeat)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Repeat this until the customer is satisfied ^^&lt;/li&gt;
+&lt;li&gt;Problem from waterfall model is solved!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;agile&#34;&gt;
+    &lt;a href=&#34;#agile&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Agile!
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Agile itself is not a model, it is an umbrella term.&lt;/li&gt;
+&lt;li&gt;Agile way says,
+&lt;ul&gt;
+&lt;li&gt;we have to build software in iterative, incrementing, short cycles.&lt;/li&gt;
+&lt;li&gt;Intra-team(cross-team) communication is key to reduce conflicts in future.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-models-of-agile&#34;&gt;
+    &lt;a href=&#34;#some-models-of-agile&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Some models of agile:
+&lt;/h3&gt;
+&lt;h4 id=&#34;lean-developmentcopied-from-wiki&#34;&gt;
+    &lt;a href=&#34;#lean-developmentcopied-from-wiki&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Lean development:[copied from wiki]
+&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Eliminate waste : do not add anything which is not required.&lt;/li&gt;
+&lt;li&gt;Amplify learning: gather requirments constantly, share knowledge among teams.&lt;/li&gt;
+&lt;li&gt;Decide as late as possible: conter-intuitive? nah, just don&amp;rsquo;t commit early.&lt;/li&gt;
+&lt;li&gt;Deliver ASAP: the faster the deliver, the faster the feedback and faster the cycle repeats.&lt;/li&gt;
+&lt;li&gt;Empower the team: Important.&lt;/li&gt;
+&lt;li&gt;Optimize the whole: Always think about how the system works on the whole.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;scrum&#34;&gt;
+    &lt;a href=&#34;#scrum&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    SCRUM!!
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The whole project is broken down into chunks.&lt;/li&gt;
+&lt;li&gt;Each chunk is divided such that it can be completed in 2-4 weeks.&lt;/li&gt;
+&lt;li&gt;And this timeframe to complete a chuck is called &lt;code&gt;sprint&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Each chunk of work is again divided into tasks which people can pickup and complete.&lt;/li&gt;
+&lt;li&gt;Number of tasks completed in a sprint gives teams &lt;code&gt;velocity&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Balance the velocity, it shouldn&amp;rsquo;t be too high(easy tasks) or too low(hard tasks).&lt;/li&gt;
+&lt;li&gt;The tasks which are not completed(spillovers) are again put into next sprint.&lt;/li&gt;
+&lt;li&gt;Scrum events:
+&lt;ul&gt;
+&lt;li&gt;Planning - Initial planning of whole project&lt;/li&gt;
+&lt;li&gt;Estimation - Splitting into chunks&lt;/li&gt;
+&lt;li&gt;Daily standups - Daily updates(what was done yesterday, what will be done today, any blockers?) - each team member talks about these three points in short.&lt;/li&gt;
+&lt;li&gt;Retrospection - After each sprint, what went well and what can be improved must be discussed among team. And actions items have to be planned accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;kanban&#34;&gt;
+    &lt;a href=&#34;#kanban&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Kanban
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A board style todo-list.&lt;/li&gt;
+&lt;li&gt;Contains lanes
+&lt;ul&gt;
+&lt;li&gt;TODO/Backlog&lt;/li&gt;
+&lt;li&gt;Doing&lt;/li&gt;
+&lt;li&gt;Review&lt;/li&gt;
+&lt;li&gt;Done&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;More lanes can be added according to teams need and style&lt;/li&gt;
+&lt;li&gt;Ex: Trello&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;devops&#34;&gt;
+    &lt;a href=&#34;#devops&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Devops!
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Popular!&lt;/li&gt;
+&lt;li&gt;People are switching to microservice architecture.&lt;/li&gt;
+&lt;li&gt;As number of services increase in microservice architecture, each team which is responsible for a service owns the service. Hence, team should also be involved in operations related tasks!&lt;/li&gt;
+&lt;li&gt;Devops itself has become a new role now-a-days. It was just a culture before&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+    </description>
+    </item>
+    
     <item>
     <title>Dependency Injection - Spring</title>
     <link>https://rahilrehan.github.io/post/dependecy-injection-spring/</link>
