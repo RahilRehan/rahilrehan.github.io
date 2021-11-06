@@ -6,7 +6,29 @@
     <description>Recent content in Posts on Rahil Rehan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Book Notes - Hands on Software Engineering with Golang - 01</title>
+      <link>https://rahilrehan.github.io/post/hands-on-se-with-golang/</link>
+      <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rahilrehan.github.io/post/hands-on-se-with-golang/</guid>
+      <description>This is my notes from book reading the book Hands on software engineering with Golang and all the credits go to the Achilleas Anagnostopoulos
+   Go Vendoring  Also called lazy package resolution is using immutable snapshot of dependencies whenever a Go application is compiled. i.e having a copy of dependencies cached, which will be used for compilation.
+Why vendoring? Behavior of application might change when dependencies are updated to newer versions automatically.</description>
+    </item>
+    
+    <item>
+      <title>Golang quick reference</title>
+      <link>https://rahilrehan.github.io/post/golang-snippets/</link>
+      <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rahilrehan.github.io/post/golang-snippets/</guid>
+      <description>GO env variables:  These are some go env variables
+ GOROOT  Location of GO SDK    1 2 3  export GOROOT=~/Downloads/go export PATH=$PATH:$GOROOT/bin     GOPATH (for go version greater than 1.13) i.e using with GO modules
+ downloaded source code is stored in $GOPATH/pkg/mod compliled binaries are stored in $GOPATH/bin  we can change this behaviour with $GOBIN   defaults to $HOME/go    GOBIN</description>
+    </item>
+    
     <item>
       <title>Software Development Lifecycle</title>
       <link>https://rahilrehan.github.io/post/software-engineering-lifecycle/</link>

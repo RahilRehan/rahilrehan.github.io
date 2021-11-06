@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Golang quick reference | Rahil Rehan</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="Personal Blog" />
+    <meta property="og:title" content="Golang quick reference | Rahil Rehan"/>
+    <meta itemprop="name" content="Golang quick reference | Rahil Rehan" />
+    <meta name="twitter:title" content="Golang quick reference | Rahil Rehan" />
+    <meta name="application-name" content="Golang quick reference | Rahil Rehan" />
+
+
+    <meta name="description" content="Quick reference of golang" />
+    <meta name="twitter:description" content="Quick reference of golang "/>
+    <meta itemprop="description" content=" Quick reference of golang "/>
+    <meta property="og:description" content=" Quick reference of golang " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="Rahil Rehan" />
+<meta property="og:article:published_time" content=2021-10-23T00:00:00Z />
+<meta property="article:published_time" content=2021-10-23T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Rahil rehan" />
+  <meta property="article:author" content="Rahil rehan" />
+  <meta name="author" content="Rahil rehan" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Golang quick reference",
+    "author": {
+      "@type": "Person",
+      "name": "Rahil Rehan"
+    },
+    "datePublished": "2021-10-23",
+    "description": "Quick reference of golang",
+    "wordCount":  3318 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-10-23",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rahil Rehan",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/rahilrehan.github.io\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.dd11f3be48cfdaa9c10fb49890780a9d09a5712371241d8ecb075729bd020ed2.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Rahil Rehan
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Golang quick reference</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By Rahil Rehan | <time>October 23, 2021</time>
+                            | 16 minutes
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/golang/">golang</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h3 id="go-env-variables">
+    <a href="#go-env-variables" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    GO env variables:
+</h3>
+<p>These are some go env variables</p>
+<ul>
+<li>GOROOT
+<ul>
+<li>Location of GO SDK</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>~/Downloads/go
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>GOPATH (for go version greater than 1.13) i.e using with GO modules</p>
+<ul>
+<li>downloaded source code is stored in $GOPATH/pkg/mod</li>
+<li>compliled binaries are stored in $GOPATH/bin
+<ul>
+<li>we can change this behaviour with $GOBIN</li>
+</ul>
+</li>
+<li>defaults to $HOME/go</li>
+</ul>
+</li>
+<li>
+<p>GOBIN</p>
+<ul>
+<li>this is where all compiled binaries will be stored</li>
+<li>if we set this, we can run binaries without specifying full path</li>
+</ul>
+</li>
+</ul>
+<p>Run <code>go env</code> to list all go related environment variables</p>
+<h3 id="go-commands">
+    <a href="#go-commands" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Go commands
+</h3>
+<ul>
+<li><code>go mod init github.com/RahilRehan/banco</code>, Creates a go.mod file</li>
+<li><code>go install</code>, compiles and place binary in $GOBIN</li>
+<li><code>go build</code>, compiles and places binary in current directory</li>
+<li><code>go run main.go</code>, compiles and executes the binary
+<ul>
+<li><code>go run cmd/*.go</code>, if main package contains multiple files</li>
+</ul>
+</li>
+</ul>
+<h3 id="go-packages">
+    <a href="#go-packages" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Go packages
+</h3>
+<ul>
+<li>go packages is way to organize code and also helps in code reusability</li>
+<li>every go file starts with <code>package package_name</code>
+<ul>
+<li>ex: <code>package main</code></li>
+</ul>
+</li>
+<li>all go files with same package name are placed in same directory</li>
+</ul>
+<h3 id="dependency-management-in-go">
+    <a href="#dependency-management-in-go" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Dependency management in Go
+</h3>
+<ul>
+<li>
+<p>collection of packages(nested pacakages may exist) forms a Go module</p>
+</li>
+<li>
+<p>there are go.mod and go.sum files is present in modules root</p>
+<ul>
+<li>
+<p>go.mod contains modules import path and list of dependencies</p>
+<ul>
+<li>if a direct dependency does not have go.mod internally, its dependencies are imported as indirect dependencies in projects go.mod file.</li>
+</ul>
+</li>
+<li>
+<p>go.sum contains</p>
+<ul>
+<li>list of checksum of all direct and indirect dependencies with versions.</li>
+<li>this checksum is used to validate none of the dependencies got modified.</li>
+</ul>
+</li>
+<li>
+<p>alias:</p>
+<ul>
+<li>Import packages with different names: <code>import config demo-app/repo/configuration</code></li>
+<li>Blank import is used to just run init function of package, ex: <code>import _ sql/pq</code></li>
+</ul>
+</li>
+<li>
+<p>init function:</p>
+<ul>
+<li>Used to initialize global variables of a package.</li>
+<li>Executed when the package is initialized.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>go get package_name</code> - downloads a dependency to current project, and adds it to go.mod</p>
+</li>
+<li>
+<p><code>go mod tidy</code> - makes sure the current projects dependencies reflect go.mod file and vice versa</p>
+</li>
+<li>
+<p><code>go mod download</code> - downloads dependencies listed in go.mod</p>
+</li>
+<li>
+<p><code>go mod vendor</code> - bundles all dependencies in vendor folder, reduces downloading dependencies</p>
+</li>
+<li>
+<p>import paths:</p>
+<ul>
+<li>import pacakge within same module: <code>import module_name/package_name</code></li>
+<li>in go.mod file use <code>replace package_name =&gt; new_package_name</code> to replace a package.(useful)</li>
+</ul>
+</li>
+<li>
+<p>semantic imports</p>
+<ul>
+<li>semantic versionning: V.{major}.{minor}.{patch}</li>
+<li>Go automatically picks up latest from minor and patch versions</li>
+<li>For using particular major version in imports, append major version to end of dependency , ex: <code>import &quot;github.com/javascript/v8&quot;</code></li>
+</ul>
+</li>
+<li>
+<p>Notes</p>
+<ul>
+<li>semi colon is not requried at the end of statements in go</li>
+</ul>
+</li>
+</ul>
+<h3 id="variables">
+    <a href="#variables" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Variables
+</h3>
+<ul>
+<li>Using var keyword(very explicit:
+<ul>
+<li><code>var variable_name type</code>, ex: <code>var name string</code>.</li>
+<li>All declared variables are assigned zero value of given type.</li>
+<li>Multiple variable declaration: <code>var one, two, three int64</code></li>
+<li>Declaraion + Assignment: <code>var one, two int64 = 1, 2</code></li>
+<li>declaration block with multiple types</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="p">(</span>
+	<span class="nx">name</span> <span class="kt">string</span>
+	<span class="nx">age</span> <span class="kt">int64</span>
+	<span class="nx">vaccinated</span> <span class="kt">bool</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Type inferred declaration and initialization:
+<ul>
+<li><code>var a = 5</code>, <code>var name = &quot;Alice&quot;</code></li>
+<li>type of the variable is automatically inferred from right hand side</li>
+</ul>
+</li>
+<li>Short-hand declaration and initialization
+<ul>
+<li><code>a := 5</code>, <code>name := &quot;rahil&quot;</code></li>
+<li>note that we can only use this type of declaration inside function</li>
+<li>for reassigning we cannot use <code>:=</code>, <code>=</code> must be used</li>
+</ul>
+</li>
+<li>Any unused variables in code will cause compilation error</li>
+<li>Local variables are one which are defined at function or block level
+<ul>
+<li>Scope and lifetime of these variables until these blocks are in use</li>
+</ul>
+</li>
+<li>Global variables are declared outside functions and blocks
+<ul>
+<li>they are declared at package level</li>
+<li>If they start with capital alphabet, they are exported to other packages</li>
+<li>If they start with small alphabet, they are not exported to other packages</li>
+</ul>
+</li>
+</ul>
+<h3 id="constants">
+    <a href="#constants" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Constants
+</h3>
+<ul>
+<li>Once declared, we cannot change the value</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//single
+</span><span class="c1"></span><span class="kd">const</span> <span class="nx">a</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;random&#34;</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="p">=</span> <span class="s">&#34;inferred type&#34;</span>
+
+<span class="c1">//multiple
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">E</span> <span class="p">=</span> <span class="s">&#34;Exported&#34;</span>
+	<span class="nx">n</span> <span class="p">=</span> <span class="mi">23</span>
+<span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>const values must be known at compile time, so we cannot declare const from a functions return value</li>
+<li>const are also scoped, i.e if const name start with caps only then its exported out of package and, if declared inside function cannot be accessed in other functions.</li>
+<li>four types of constants: int, string, character(int32), bool</li>
+</ul>
+<h3 id="datatypes">
+    <a href="#datatypes" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Datatypes
+</h3>
+<ul>
+<li>Basic Types
+<ul>
+<li>Integers
+<ul>
+<li>ex: <code>var num int64 = 189</code></li>
+<li>Int64 (Signed) -&gt; 64 bits =&gt; 8 bytes</li>
+<li>Uint64 (Unsigned) -&gt; 0 to 2^64 - 1 numbers can be stored</li>
+<li>also, there are int8, int16, int32 and similarly for uint</li>
+<li>unintptr, can hold pointer of any size</li>
+</ul>
+</li>
+<li>Float64 and Float32 for precision based operations
+<ul>
+<li>ex: <code>var f float64 = 3.56</code></li>
+</ul>
+</li>
+<li>Complex64, Complex128
+<ul>
+<li>ex:  <code>var c complex64 = 9 + 3i</code></li>
+</ul>
+</li>
+<li>Byte
+<ul>
+<li>ex: <code>var mychar byte := 'r'</code></li>
+<li>same as uint8</li>
+<li>value between 0 - 255</li>
+<li>can represent ASCII values</li>
+</ul>
+</li>
+<li>Rune
+<ul>
+<li>ex: <code>rPound := '£'</code></li>
+<li>same as int32</li>
+<li>used to represent Unicode points
+<ul>
+<li>Unicode points are superset of ASCII</li>
+<li>Unicode points can assign a number to any character in existence</li>
+<li>UTF-8 stores every Unicode Point either using 1, 2, 3 or 4 bytes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>String
+<ul>
+<li>ex: <code>var name string=&quot;Alice&quot;</code></li>
+<li>Slice of bytes, i.e array of bytes</li>
+<li>string is usually represented in utf-8 format</li>
+<li>therefore, according to the character type in string, the size varies between 1-4 bytes.</li>
+</ul>
+</li>
+<li>Boolean (true of false)
+<ul>
+<li>ex: <code>var isGood bool = true</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="more-types">
+    <a href="#more-types" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    More types
+</h3>
+<ul>
+<li>Pointer
+<ul>
+<li>you can declare pointer with <code>new</code> keyword or with <code>&amp;</code></li>
+<li><code>*</code> is the dereferencing pointer, using * we can access and change value pointed by the pointer.</li>
+<li>lot of different things can be done once we start coupling both * and &amp;</li>
+<li>default value of pointer is <code>nil</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="o">*</span><span class="nx">a</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Address of int is %d and value is %d&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="o">*</span><span class="nx">a</span><span class="p">)</span>
+
+<span class="nx">b</span> <span class="o">:=</span> <span class="mi">2</span>
+<span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">b</span>
+<span class="o">*</span><span class="nx">c</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Address of b is %d and value of b is %d&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="o">*</span><span class="nx">c</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Struct
+<ul>
+<li>is a collectin of data of different types</li>
+<li>fields can be accessed and set using <code>.</code></li>
+<li>empty structs or partial structs can be created</li>
+<li>while creating new variables from struct, you need not provide field names</li>
+<li><code>,</code> is required for seperation of fields while creating struct variables</li>
+<li>It is possible create pointers to struct variables using <code>&amp;</code> or <code>new</code> keyword</li>
+<li>we can directly change field values using pointer</li>
+<li>two ways to print structs, using <code>fmt</code> package or using <code>encoding/json</code> package.</li>
+<li>struct tags: used to add meta data to struct, can be used while encoding/decoding into different forms</li>
+<li>Nested structs are possible, <code>mainStruct.nestedStruct.fieldName</code> to access nested structs field</li>
+<li>Only struct which starts with caps are exported, same for struct fields.</li>
+<li>Struct equality:
+<ul>
+<li>struct will be only equal if fields and values are same</li>
+<li>also, fields needs to compatible for equality to work</li>
+<li>slice, map and func are not supported/compatible to check equality</li>
+</ul>
+</li>
+<li>new copy of struct is created when
+<ul>
+<li>struct variable assigned to other variable</li>
+<li>struct variable passed into a function</li>
+<li>to save memory, use pointer whenever possible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">employee</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">name</span>   <span class="kt">string</span>
+    <span class="nx">age</span>    <span class="kt">int</span>
+    <span class="nx">salary</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">//empty struct variable
+</span><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span> <span class="nx">employee</span><span class="p">{}</span>
+
+<span class="c1">//non empty struct
+</span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nx">employee</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;noname&#34;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span> <span class="nx">salary</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+
+<span class="c1">//without field names
+</span><span class="c1"></span><span class="nx">c</span> <span class="o">:=</span> <span class="nx">employee</span><span class="p">{</span><span class="s">&#34;noname&#34;</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="c1">//access field
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;name is %s&#34;</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+
+<span class="c1">//set field
+</span><span class="c1"></span><span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;myname&#34;</span>
+
+<span class="nx">sp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nf">b</span>
+<span class="p">(</span><span class="o">*</span><span class="nx">sp</span><span class="p">).</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;anothername&#34;</span>
+<span class="nx">sp</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;anothername&#34;</span> <span class="c1">//also works
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Array
+<ul>
+<li>0 index based arrays</li>
+<li>Arrays are values in go, that means there is no concept of pointer pointing to first element of array</li>
+<li>we can iterate array using normal for loop or for range loop.</li>
+<li>Size is fixed in arrays</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="nx">size</span><span class="p">]{</span><span class="kd">type</span><span class="p">}{</span><span class="nx">a1</span><span class="p">,</span> <span class="nx">a2</span><span class="o">...</span> <span class="nx">an</span><span class="p">}</span>
+<span class="nx">arr2</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1">//length is equal to no of elements
+</span><span class="c1"></span><span class="nx">arr3</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span> <span class="c1">//rest of values are 0&#39;s i.e zero value of type
+</span><span class="c1"></span>
+<span class="c1">//access
+</span><span class="c1"></span><span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">//assign
+</span><span class="c1"></span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">3</span>
+
+<span class="c1">//multiple element access possible, returns a copy in range
+</span><span class="c1"></span><span class="nx">arr</span><span class="p">[</span><span class="nx">index</span><span class="p">:]</span>
+<span class="nx">arr</span><span class="p">[:</span><span class="nx">index</span><span class="p">]</span>
+<span class="nx">arr</span><span class="p">[:]</span> <span class="c1">//copy of entire array
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Slice
+<ul>
+<li>Unlike array, slice is like a struct which points to an underlying array.</li>
+<li>Length of slice is no.of elements in slice.</li>
+<li>Capacity of slice is the max capacity that internal array can hold.</li>
+<li><code>make</code> can also be used to create slice</li>
+<li><code>new</code> can also be used</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//creation
+</span><span class="c1"></span><span class="nx">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+
+<span class="c1">//creating slice from other slice or array
+</span><span class="c1"></span><span class="nx">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="nx">sl</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">//slice from array, len=2, cap=3
+</span><span class="c1"></span><span class="nx">sll</span> <span class="o">:=</span> <span class="nx">sl</span><span class="p">[:]</span> <span class="c1">//slice from another slice
+</span><span class="c1"></span>
+<span class="nx">numbers</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">//create using make, the later params are length and capacity
+</span><span class="c1"></span>
+<span class="nx">multiDim</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}}</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>- to append elements to slice: `func append(slice []Type, elems ...Type) []Type` 
+- internal size of will increase as slice length exceeds capacity
+- unlike structs, for slices copies are not created on assigning slice to other variable. i.e they are referenced
+- use `copy` function to perform copy of slice `func copy(dst, src []Type) int`
+- default zero value of slice is `nil`
+</code></pre>
+<ul>
+<li>Map
+<ul>
+<li>dictionary / hashmap in go</li>
+<li>search, insert, retrieve, delete in O(1)</li>
+<li>Apart from Slice, Map, Function other types can be used as keys in map</li>
+<li>Any type can be used as values in map</li>
+<li>declare a map using <code>map[key_type]value_type</code></li>
+<li>using <code>make</code> =&gt; <code>make(map[string]int)</code></li>
+<li>zero value of map is nil</li>
+<li>map is reference type, so assigning to other variable refers to same map</li>
+<li>maps are not safe for concurrent use, use locks for concurrent access.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// access
+</span><span class="c1"></span><span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+
+<span class="c1">//assign/create/modify
+</span><span class="c1"></span><span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">value</span>
+
+<span class="c1">//delete
+</span><span class="c1"></span><span class="nb">delete</span><span class="p">(</span><span class="kd">map</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span>
+
+<span class="c1">//check if key exists
+</span><span class="c1"></span><span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="c1">//to get length of map
+</span><span class="c1"></span>
+<span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="nx">in</span> <span class="nx">m</span><span class="p">{</span> <span class="c1">//iterate over map
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>IOTA
+<ul>
+<li>similar to enums</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//without iota
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">a</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="nx">c</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1">//with iota
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span>
+    <span class="nx">b</span>
+    <span class="nx">c</span>
+<span class="p">)</span>
+
+<span class="c1">//skip value in iota
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span>
+	<span class="nx">_</span>
+	<span class="nx">b</span>
+	<span class="nx">c</span>
+<span class="p">)</span>
+
+<span class="c1">//iota operations
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span>
+	<span class="nx">b</span> <span class="p">=</span> <span class="kc">iota</span> <span class="o">+</span> <span class="mi">4</span>
+	<span class="nx">c</span> <span class="p">=</span> <span class="kc">iota</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="functions">
+    <a href="#functions" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Functions
+</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// signature
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">name_of_function</span><span class="p">(</span><span class="nx">param1</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">param2</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">){</span>
+	<span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+	<span class="k">return</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span>
+<span class="p">}</span>
+
+<span class="c1">// if parameters are of same type, we can club them into one
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">name_of_function</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">){</span>
+	<span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+	<span class="k">return</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span>
+<span class="p">}</span>
+
+<span class="c1">//named returns, useful when function returns error
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">returnAandB</span><span class="p">()(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">){</span>
+	<span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+	<span class="k">return</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Functions are also type in Go and, Higher order functions are supported. So, we can..</p>
+<ul>
+<li>return functions from other functions.</li>
+<li>pass functions as parameter to other functions.</li>
+<li>assign function to a variable(anonymous functions)</li>
+<li>create function types(declare a type with function signature)</li>
+</ul>
+</li>
+<li>
+<p>Go also supports function closures!</p>
+<ul>
+<li>Consider, function <code>b</code> which lives inside another function <code>a</code>.</li>
+<li>From below example, the inner function <code>b</code> can access the <code>counter</code> variable even though it got returned.</li>
+<li>And the copy of <code>counter</code> vairable is unique to each function returned from <code>a</code></li>
+<li>This is called closure</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">a</span><span class="p">()</span> <span class="p">(</span><span class="nx">b</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span><span class="p">){</span>
+	<span class="nx">counter</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="nx">b</span> <span class="p">=</span> <span class="kd">func</span> <span class="p">()</span> <span class="kt">int</span><span class="p">{</span>
+		<span class="nx">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="nx">counter</span>
+	<span class="p">}</span> 
+	<span class="k">return</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">b</span> <span class="o">:=</span> <span class="nf">a</span><span class="p">()</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">b</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">b</span><span class="p">())</span>
+	
+	<span class="nx">c</span> <span class="o">:=</span> <span class="nf">a</span><span class="p">()</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">c</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">c</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="c1">//output
+</span><span class="c1"></span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Immediate invocation is possible, i.e add <code>()</code> at the end of function definition to invoke it.</li>
+<li>Variadic Parameters
+<ul>
+<li><code>func add(numbers ...int)</code>
+<ul>
+<li>pass any number of int params to add function</li>
+<li><code>numbers</code> is an array of ints</li>
+<li><code>add(1, 2, 3, 3, 4, 5, 6)</code>, this is how we can call it, and params can vary in length</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="methods">
+    <a href="#methods" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Methods
+</h3>
+<ul>
+<li>Attaching functions to types</li>
+<li><code>func (r receiver_type) func_name(args) returns</code></li>
+<li>This will let us emulate object oriented behavior, where types can have functionality attached to them</li>
+<li>Very similar to calling methods on objects</li>
+<li>Using pointer receivers will decrease memory usage and we will also be able to change values from method.
+<ul>
+<li>i.e we can emulate setters</li>
+</ul>
+</li>
+<li>Reciever types must be defined in the same package</li>
+<li>If we have nested struct, we can directly call method attached to nested struct</li>
+<li>If method names begin with caps then they are exported out of package, but then type also must be public.</li>
+</ul>
+<h3 id="loops">
+    <a href="#loops" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Loops
+</h3>
+<ul>
+<li>there is no while loop in go</li>
+<li>there are only two types of loops,
+<ul>
+<li>for loop</li>
+<li>for range loop
+<ul>
+<li>can be used to iterate over array, slice, string, map and channels</li>
+<li>using range keywords return two values =&gt; index and value</li>
+<li>we can ignore second return by using a <code>_</code> or just using one variable on left hand side</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>break</code> and <code>continue</code> statements work just as in any other programming language</li>
+<li><code>labels and goto</code> are also present in golang, to go to particular label from any point in program</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// for initialization; condition; post_statement{}
+</span><span class="c1"></span><span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Prinlnt</span><span class="p">(</span><span class="s">&#34;yello!&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// emulate while loop
+</span><span class="c1"></span><span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="nx">i</span><span class="p">&lt;</span><span class="mi">5</span><span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Prinlnt</span><span class="p">(</span><span class="s">&#34;yello!&#34;</span><span class="p">)</span>
+	<span class="nx">i</span><span class="o">++</span>
+<span class="p">}</span>
+
+<span class="c1">// for range loop on array
+</span><span class="c1"></span><span class="nx">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="c1">//array
+</span><span class="c1"></span><span class="k">for</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">arr</span><span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// on string: we should use range loops on strings as UTF-8 encoded
+</span><span class="c1"></span><span class="nx">sample</span> <span class="o">:=</span> <span class="s">&#34;a£b&#34;</span>
+<span class="k">for</span> <span class="nx">idx</span><span class="p">,</span> <span class="nx">letter</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">sample</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">letter</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// on map
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">m</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+		<span class="s">&#34;name&#34;</span> <span class="p">:</span> <span class="s">&#34;john&#34;</span> <span class="p">,</span>
+		<span class="s">&#34;vehicle&#34;</span> <span class="p">:</span> <span class="s">&#34;car&#34;</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">m</span><span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span>
+ 	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="c1">// on channels, example taken from &#34;golangbyexample.com&#34;
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+    <span class="k">go</span> <span class="nf">pushToChannel</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">pushToChannel</span><span class="p">(</span><span class="nx">ch</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="s">&#34;a&#34;</span>
+    <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="s">&#34;b&#34;</span>
+    <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="s">&#34;c&#34;</span>
+    <span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="conditional-statements">
+    <a href="#conditional-statements" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Conditional statements
+</h3>
+<ul>
+<li>if/else statements</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">condition</span> <span class="p">{</span>
+   <span class="c1">//Do something
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">condition</span> <span class="p">{</span>
+   <span class="c1">//Do something
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+   <span class="c1">//Do something
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>- there are no shorthand if/else in go
+- there are no ternary statements in go
+- if with initialization statement, you can declare variables in if statement and those variables are scoped to that particular if block. You can even call function in initialization statements.
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">a</span><span class="o">:=</span> <span class="mi">6</span><span class="p">;</span> <span class="nx">a</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;less than 10&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>switch statements
+<ul>
+<li>break statements are not required</li>
+<li><code>fallthrough</code> to also check more cases after a case match</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="k">switch</span> <span class="nf">statement</span><span class="p">(</span><span class="nx">pre</span><span class="p">);</span> <span class="nx">expression</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">expression1</span><span class="p">,</span> <span class="nx">expresstion2</span><span class="p">:</span>
+	     <span class="c1">//Dosomething
+</span><span class="c1"></span>	     <span class="k">fallthrough</span>
+	<span class="k">case</span> <span class="nx">expression2</span><span class="p">:</span>
+	     <span class="c1">//Dosomething
+</span><span class="c1"></span>	<span class="k">default</span><span class="p">:</span>
+	     <span class="c1">//Dosomething
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="defer">
+    <a href="#defer" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    defer
+</h3>
+<ul>
+<li>helps in deferring some activity</li>
+<li>used for cleanup activities</li>
+<li>example if you open a file, you must close it. But we often forget it!</li>
+<li>in Go, you can defer the required things before main logic.</li>
+<li>if we have multiple defers statements, they will run in reverse order at the end of function.</li>
+<li>inline defers, anonymous functions which will run at end of function</li>
+<li>defer itself is implemented internally with stack</li>
+<li>defer function are executed even if the program panics</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">write</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;temp.txt&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+	    <span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span> <span class="c1">// this will execute at the end of function, executed second(i.e after below defer)
+</span><span class="c1"></span>	<span class="k">defer</span> <span class="kd">func</span><span class="p">(){</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;closing file..&#34;</span><span class="p">)}</span> <span class="c1">// first defer to be executed
+</span><span class="c1"></span>
+	<span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">file</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;text.....&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+	    <span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Number of bytes written: %d&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="interfaces">
+    <a href="#interfaces" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Interfaces
+</h3>
+<ul>
+<li>Interface is a type in Go which is a collection of method signatures</li>
+<li>With this you can achieve duck typing in Go. i.e we check if some attributes and methods are present.</li>
+<li>The main reason why we must use interfaces is because we can mock them and hence testing becomes easier.</li>
+<li>A type imlicitly implements interface if it implements all methods in interface.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Animal</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nf">walk</span><span class="p">()</span>
+    <span class="nf">eat</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">dog</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">age</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;dog eats&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">walk</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Dog walks&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">l</span> <span class="nx">lion</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Lion eats&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">l</span> <span class="nx">lion</span><span class="p">)</span> <span class="nf">walk</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Lion walk&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">callEat</span><span class="p">(</span><span class="nx">a</span> <span class="nx">Animal</span><span class="p">){</span>
+	<span class="nx">a</span><span class="p">.</span><span class="nf">eat</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="nx">Animal</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">//nil interface =&gt; zero value
+</span><span class="c1"></span>    <span class="nx">a</span> <span class="p">=</span> <span class="nx">dog</span><span class="p">{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nf">eat</span><span class="p">()</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nf">walk</span><span class="p">()</span>
+    <span class="nf">callEat</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+
+    <span class="nx">a</span> <span class="p">=</span> <span class="nx">lion</span><span class="p">{</span><span class="nx">age</span><span class="p">:</span><span class="mi">24</span><span class="p">}</span>
+    <span class="nf">callEat</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+
+    <span class="nx">l</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="nx">lion</span><span class="p">)</span> <span class="c1">//determine type of interface
+</span><span class="c1"></span><span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>In the above example, dog imlements the Animal interface. We can have other types as well which may implment Animal interface.</li>
+<li>We can assign any variable types which implement an interface to interface variable.</li>
+<li>We can also pass any variable types which implement an interface to function accepting that interface.</li>
+<li>Interfaces help in writing more modular and decoupled code. Functions which accept interfaces becomes very generic to use.</li>
+<li>pointer reciever vs value reciever
+<ul>
+<li>if we use pointer as reciever then both variable and pointer to the variable of that type can be used while assigning to interface or while passing to a function which accepts an argument as that interface.</li>
+<li>if we use pointer as reciever then the only pointer to the variable of that type can be used while assigning to that interface or while passing to a function that accepts an argument as that interface.</li>
+</ul>
+</li>
+<li>A type can implement multiple interfaces.</li>
+<li>Zero value of interface is nil.</li>
+<li>Nested interfaces / embedded interfaces are possible. Then type must implement all methods from main interface and nested interface.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//embedded interface
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ReadWriter</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">Reader</span>
+    <span class="nx">Writer</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>It is also possible to have interface in struct. Whenever we create instance of that struct we must pass an object to interface field which implements all methods of that interface.</li>
+<li>An empty interface has no methods , hence by default all types implement the empty interface.</li>
+</ul>
+<h3 id="goroutines">
+    <a href="#goroutines" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Goroutines
+</h3>
+<ul>
+<li>lightweight threads with own execution context which can run concurrently with other goroutines. Concurency is achieved using goroutines in Go.</li>
+<li>Running goroutine is simple as just adding <code>go</code> keyword before invoking any function</li>
+<li>Goroutine functions are run asynchronously, so the next statements execute immediately and does not wait for goroutine to complete execution.</li>
+<li>Main function - is the main goroutine, which spawns other goroutines.
+<ul>
+<li>when main goroutine exits, program also exits and other goroutines may not even get executed.</li>
+</ul>
+</li>
+<li>Read more abour run queues in go <a href="https://golangbyexample.com/goroutines-golang/">here</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//example
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">threadSpawner</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Start&#34;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="k">go</span> <span class="nf">threadSpawner</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Finish&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// anonymous goroutines
+</span><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">(){</span>
+   <span class="c1">//body
+</span><span class="c1"></span><span class="p">}(</span><span class="nx">args</span><span class="p">..)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="channels">
+    <a href="#channels" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Channels
+</h3>
+<ul>
+<li>Channels provide communications and synchrounization between goroutines.</li>
+<li>Channels internally manage locks as well.</li>
+<li>They act like pipes, you can perform only two actions. Send to channel, Recieve from channels.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ch</span> <span class="kd">chan</span> <span class="kt">int</span>
+    <span class="nx">ch</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+
+    <span class="c1">//send into channel
+</span><span class="c1"></span>    <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">5</span>
+
+    <span class="c1">//recieve from channel
+</span><span class="c1"></span>    <span class="nx">val</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/software-engineering-lifecycle/" title="Previous post (older)">
+            <span>Previous</span>
+            Software Development Lifecycle
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/hands-on-se-with-golang/" title="Next post (newer)">
+            <span>Next</span>
+            Book Notes - Hands on Software Engineering with Golang - 01
+            </a> 
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Book Notes - Hands on Software Engineering with Golang - 01 | Rahil Rehan</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="Personal Blog" />
+    <meta property="og:title" content="Book Notes - Hands on Software Engineering with Golang - 01 | Rahil Rehan"/>
+    <meta itemprop="name" content="Book Notes - Hands on Software Engineering with Golang - 01 | Rahil Rehan" />
+    <meta name="twitter:title" content="Book Notes - Hands on Software Engineering with Golang - 01 | Rahil Rehan" />
+    <meta name="application-name" content="Book Notes - Hands on Software Engineering with Golang - 01 | Rahil Rehan" />
+
+
+    <meta name="description" content="Notes on vendoring and testing in Go" />
+    <meta name="twitter:description" content="Notes on vendoring and testing in Go "/>
+    <meta itemprop="description" content=" Notes on vendoring and testing in Go "/>
+    <meta property="og:description" content=" Notes on vendoring and testing in Go " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="Rahil Rehan" />
+<meta property="og:article:published_time" content=2021-11-06T00:00:00Z />
+<meta property="article:published_time" content=2021-11-06T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Rahil rehan" />
+  <meta property="article:author" content="Rahil rehan" />
+  <meta name="author" content="Rahil rehan" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Book Notes - Hands on Software Engineering with Golang - 01",
+    "author": {
+      "@type": "Person",
+      "name": "Rahil Rehan"
+    },
+    "datePublished": "2021-11-06",
+    "description": "Notes on vendoring and testing in Go",
+    "wordCount":  1049 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-11-06",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rahil Rehan",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/rahilrehan.github.io\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.dd11f3be48cfdaa9c10fb49890780a9d09a5712371241d8ecb075729bd020ed2.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Rahil Rehan
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Book Notes - Hands on Software Engineering with Golang - 01</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By Rahil Rehan | <time>November 06, 2021</time>
+                            | 5 minutes
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/golang/">golang</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>This is my notes from book reading the book <a href="https://github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang">Hands on software engineering with Golang</a> and all the credits go to the Achilleas Anagnostopoulos</p>
+<h2 id="go-vendoring">
+    <a href="#go-vendoring" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Go Vendoring
+</h2>
+<p>Also called lazy package resolution is using immutable snapshot of dependencies whenever a Go application is compiled. i.e having a copy of dependencies cached, which will be used for compilation.</p>
+<p>Why vendoring?
+Behavior of application might change when dependencies are updated to newer versions automatically.</p>
+<ul>
+<li>
+<p>Approaches</p>
+<ul>
+<li>Fork dependency with particular version and point import to it</li>
+<li>create a manifest file which will list all the dependency versions</li>
+<li>cache dependencies to vendor folder(checked into vcs)</li>
+</ul>
+</li>
+<li>
+<p>Advantages:</p>
+<ul>
+<li>can create LTS releases</li>
+<li>serves as a safety net in case an upstream dependency suddenly disappears from source (ex: left-pad)</li>
+</ul>
+</li>
+<li>
+<p>Disadvantages:</p>
+<ul>
+<li>People often do not periodically update them. Some important fixes and issues resolved in dependencies are not reflected in the application. (Security issues?)</li>
+</ul>
+</li>
+</ul>
+<p>How to vendor?</p>
+<pre tabindex="0"><code>go mod vendor
+</code></pre><h2 id="go-testing">
+    <a href="#go-testing" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Go testing
+</h2>
+<p>As application complexity grows overtime, it becomes very important to have comprehensive tests.</p>
+<p><strong>Unit test:</strong> a unit is the smallest possible bit of code that we can test.
+functions, structs, methods and even Go packages can be considered as single unit.</p>
+<p><strong>Stub:</strong> A stub is the simplest test pattern that we can use in our tests. Stubs typically implement a particular interface and don&rsquo;t contain any real logic; they just provide fixed answers to calls that are performed through the course of a test.
+( Ex: Chapter04/captcha)</p>
+<p><strong>Spy:</strong> A spy is nothing more than a stub that keeps a detailed log of all the methods that are invoked on it. For each method invocation, the spy records the arguments that were provided by the caller and makes them available for inspection by the test code.
+( Ex: Chapter04/chat)</p>
+<p><strong>Mocks:</strong> Contrary to the fixed behavior exhibited by stubs, mocks allow us to specify, not only the list of calls that the mock is expected to receive but also their order and expected argument values.</p>
+<p>In addition, mocks allow us to specify different return values for each method invocation, depending on the argument tuple provided by the method caller.
+Writing mocks from for all objects is very tedious, so often use mock generation tool.</p>
+<ul>
+<li>GoMock
+Creates mocks based on interfaces definitions, leverages reflection. ( Ex: Chapter04/dependency)</li>
+</ul>
+<p><strong>Fake objects:</strong> fake objects also adhere to a specific interface, which allows us to inject them into the subject under test. The main difference is that fake objects do, in fact, contain a fully working implementation whose behavior matches the objects that they are meant to substitute. ( Ex: Chapter04/computer)</p>
+<p><strong>Black box testing:</strong> Test the exposed public interface, functions and variables of the package (exported when anything starts with capital letters).
+Test package name can be changed to package_test, this will help in testing the package as an external entity.</p>
+<p><strong>White box testing:</strong> Testing implementation details or code which is not public, (all the things which start with small letters).
+We can name our file as <code>package_internal_test</code> and test package name can be same as package under test, so that the internal entities are accessible.</p>
+<p><strong>Table Driven testing + Sub testing:</strong> Contains two parts: (test case definition and test-runner code).</p>
+<p>All the duplicate setup can be stored in test case definition. And logic can be modified accordingly in test-runner.
+We can use anonymous struct to create test case definition of different scenarios.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="c1">// table driven design of test cases
+</span><span class="c1"></span><span class="nx">scenes</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">testName</span> <span class="kt">string</span>
+    <span class="nx">inputArg</span> <span class="kt">int</span>
+    <span class="nx">expected</span> <span class="kt">int</span>
+<span class="p">}{</span>
+  <span class="p">{</span><span class="s">&#34;valid test&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span>
+  <span class="p">{</span><span class="s">&#34;invalid test&#34;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">// sub testing
+</span><span class="c1"></span><span class="k">for</span> <span class="nx">test</span> <span class="nx">in</span> <span class="nx">scenes</span><span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">testName</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">){</span>
+        <span class="c1">//test code
+</span><span class="c1"></span>    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Checkout, testing library: <a href="https://github.com/stretchr/testify">Testify</a>
+It provides, Assertion, mocking, suite interfaces and functions.</p>
+<p>Require vs Assert?
+The require package provides same global functions as the assert package, but instead of returning a boolean result they terminate current test when test fails.</p>
+<p><strong>Integration tests:</strong> ensures that different units (or services, in a microservice architecture) interoperate correctly.</p>
+<p>Also, as part of integration tests, you might need to connect with a real database. Just to make the configuration and our life easier, we can use <a href="https://github.com/testcontainers/testcontainers-go">TestContainers</a></p>
+<p>Before trying to write lot of integration tests, make sure you have good number of concrete unit tests in-place.</p>
+<p><strong>Functional tests:</strong> Used to verify end-to-end correctness by simulating a user&rsquo;s journey through the system. They ensure that the complete system is working as expected and involve multiple complex actions involving multiple system components.</p>
+<p><strong>Smoke tests:</strong> Or build acceptance tests constitute a special family of tests that are traditionally used as early sanity checks by QA teams before going for functional testing.</p>
+<p>If smoke tests fail, no further testing is performed. They must be quick and only check for basic acceptance criteria, in-depth testing can be done by functional tests at later stage.</p>
+<p><strong>Chaos testing:</strong> key point behind chaos testing is to evaluate your system&rsquo;s behavior when various components exhibit different types of failure. Idea is to have a preventive fashion mechanism rather than trying to react on failure.</p>
+<p>Using ambassador/sidecar pattern, you can inject failures into the system like latencies/ lags/ traffic etc.</p>
+<p><strong>Testing Techniques</strong></p>
+<p>Use environment variables to run tests as required. Example, DB url can change according to testing/staging/prod environments.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="c1">// skipping tests
+</span><span class="c1"></span><span class="k">if</span> <span class="nx">host</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nf">Skip</span><span class="p">(</span><span class="s">&#34;Skipping test as DB connection info is not present&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Run tests faster:</p>
+<ul>
+<li><code>-short</code> flag to <code>go test</code>, Use Short helper function to get the flag value and based on this you can skip some tests.</li>
+<li><code>-failfast</code>, used to abort all tests if there is a failing test</li>
+<li><code>-timeout</code> flag, to define timeout. Default is 10 mins. If set to 0, no time limit is defined.</li>
+</ul>
+<p><strong>Exclude test and components:</strong>
+Using build tags helps to decide whether a particular Go file in a package should be passed to the Go compiler.</p>
+<p>Build tags appear at top of package, a new line is required after build tag line.
+Space between tags to represent <code>or</code>, comma to represent <code>and</code> and ! to represent <code>not</code>.</p>
+<p>We can use build tags in both test(go test) and build(go build)
+Ex: +build unit_tests all_tests
++build integration_tests all_tests
++build e2e_tests all_tests
+Chapter04/buildtags</p>
+<p><strong>More tricks?</strong> Mocking calls to external binaries (Chapter04/pinger) and testing timeouts (Chapter04/dialer)</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/golang-snippets/" title="Previous post (older)">
+            <span>Previous</span>
+            Golang quick reference
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>
