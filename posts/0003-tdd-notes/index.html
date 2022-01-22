@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.92.0">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Notes - Test Driven Development | </title>
+
+
+<meta name="author" content="Rahil Rehan">
+<meta name="description" content="My understanding of TDD and how I do it.">
+
+
+<meta name="robots" content="index follow">
+
+
+
+
+  
+    <link rel="canonical" href="https://rahilrehan.github.io/posts/0003-tdd-notes/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Notes - Test Driven Development">
+<meta property="og:description" content="My understanding of TDD and how I do it.">
+  <meta property="og:url" content="https://rahilrehan.github.io/posts/0003-tdd-notes/">
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2021-10-09">
+    <meta property="article:modified_time" content="2021-10-09">
+    <meta property="og:updated_time" content="2021-10-09">
+  
+
+  
+    <meta property="article:author" content="Rahil Rehan">
+  
+  
+  
+  
+
+
+
+
+
+
+
+  <meta name="twitter:dnt" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https:\/\/rahilrehan.github.io"
+      },
+      "headline": "Notes - Test Driven Development",
+      "description": "My understanding of TDD and how I do it.",
+      
+      "url": "https:\/\/rahilrehan.github.io\/posts\/0003-tdd-notes\/",
+      "inLanguage": "en",
+      "datePublished": "2021-10-09",
+      "dateModified": "2021-10-09",
+      "wordCount" : "455",
+      "publisher": {
+        "@type": "Person",
+        "name": "Rahil Rehan"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rahil Rehan",
+        "description": "I google things...",
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://rahilrehan.github.io/css/main.min.8e05f798b394986601b0549619b019d4fb9158b099e78d9b0070ef59a3ef192e.css" integrity="sha256-jgX3mLOUmGYBsFSWGbAZ1PuRWLCZ542bAHDvWaPvGS4=" crossorigin="anonymous">
+
+
+
+<noscript>
+
+  
+  
+
+  
+
+    
+      <meta name="theme-color" content="#dd587c">
+    
+
+  
+
+  
+  <link rel="stylesheet" href="https://rahilrehan.github.io/css/noscript.min.eeae9dd43f3c798b3a5404f6a1752e31c97a245a6623e49eb6e9d7d0f30136a4.css" integrity="sha256-7q6d1D88eYs6VAT2oXUuMcl6JFpmI&#43;SetunX0PMBNqQ=" crossorigin="anonymous">
+
+</noscript>
+
+
+
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://rahilrehan.github.io/js/main.min.feee6367d27673255b88715a3ed8658455db3b18a8dcbc9922266c10be457a6b.js" integrity="sha256-/u5jZ9J2cyVbiHFaPthlhFXbOxio3LyZIiZsEL5Fems=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/"></a>
+
+
+
+
+  
+    <nav aria-label="Main menu.">
+      <ul>
+        
+          <li>
+            <a class="btn" href="/">About</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/posts/">Posts</a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>Notes - Test Driven Development</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2021-10-09">2021-10-09</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<ul>
+<li>The art of a good night&rsquo;s sleep is knowing you will not get woken by a support call and the piece of mind from being able to confidently change your software in an always moving market. - Nic Jackson</li>
+<li>change in code can have undesirable effect on the other parts, tests helps in making the process of changing code in future easy</li>
+<li>testing pyramid: unit testing(bottom), service/integration(middle), ui/end-end(top)
+<ul>
+<li>test cases should decrease as you go from bottom to top</li>
+</ul>
+</li>
+<li></li>
+<li>Just write test first (use expected function)</li>
+<li>Run and fail the test</li>
+<li>Write minimal code for the test to run and fail</li>
+<li>Write minimal code to make test pass</li>
+<li>Test same function with different values</li>
+<li>Make sure all tests are passing</li>
+<li>Tests for base cases</li>
+<li>Refactor both code and tests</li>
+</ul>
+
+
+
+
+
+  <h3 id="features-and-scenarios"><a class="anchor" href="#features-and-scenarios" title='Anchor for: Features and scenarios.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Features and scenarios</h3> 
+
+<ul>
+<li>Given a feature, break it down to scenarios. Each feature is a user story
+<ul>
+<li>Example Feature: As a user when I call the search endpoint, I would like to receive a list of kittens</li>
+<li>Break it down to scenarios
+<ul>
+<li>1st Scenario: Invalid query<br>
+Given I have no search criteria<br>
+When I call the search endpoint<br>
+Then I should receive a bad request message</li>
+<li>and so&hellip; on number of different scenarios</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+  <h3 id="uncle-bobs-rules-of-unit-tests"><a class="anchor" href="#uncle-bobs-rules-of-unit-tests" title='Anchor for: Uncle bobs, rules of unit tests.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Uncle bobs, rules of unit tests</h3> 
+
+<ul>
+<li>First law: You may not write production code until you have written a failing unit test</li>
+<li>Second law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing</li>
+<li>Third law: You may not write more production code than is sufficient to pass the currently failing test</li>
+</ul>
+
+
+
+
+
+  <h3 id="naming"><a class="anchor" href="#naming" title='Anchor for: Naming.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Naming</h3> 
+
+<ul>
+<li>my convention: TestNameReturnSomethingWhenSomethingHappens
+<ul>
+<li>example:  TestDogHandlerReturnsBadRequestWhenNoSearchCriteriaIsSent</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+  <h3 id="aaa-format-for-testing---arrange-act-assert"><a class="anchor" href="#aaa-format-for-testing---arrange-act-assert" title='Anchor for: AAA format for testing - Arrange, Act, Assert.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> AAA format for testing - Arrange, Act, Assert</h3> 
+
+<ul>
+<li>I always try to follow this pattern for clean code</li>
+</ul>
+<div class="highlight"><pre aria-label="Box containing code sample." tabindex=0 class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CalculatorTest</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sumOfTwoNumbers</span><span class="o">(){</span>
+		<span class="c1">//Arrange
+</span><span class="c1"></span>		<span class="kt">double</span> <span class="n">first</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span>
+		<span class="kt">double</span> <span class="n">second</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
+		<span class="n">var</span> <span class="n">Calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">();</span>
+
+		<span class="c1">//Act
+</span><span class="c1"></span>		<span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Calc</span><span class="o">.</span><span class="na">Sum</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="n">second</span><span class="o">);</span>
+
+		<span class="c1">//Assert
+</span><span class="c1"></span>		<span class="n">Assert</span><span class="o">.</span><span class="na">Equal</span><span class="o">(</span><span class="n">30</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div>
+
+
+
+
+  <h3 id="concepts"><a class="anchor" href="#concepts" title='Anchor for: concepts.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> concepts</h3> 
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation">Idempotency</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/40297/what-is-a-side-effect">Side effects</a></li>
+<li>A <strong>stub</strong> is a fake class that comes with preprogrammed return values. It’s injected into the class under test to give you absolute control over what’s being tested as input. A typical stub is a database connection that allows you to mimic any scenario without having a real database.</li>
+<li>A <strong>mock</strong> is a fake class that can be examined after the test is finished for its interactions with the class under test. For example, you can ask it whether a method was called or how many times it was called. Typical mocks are classes with side effects that need to be examined, e.g. a class that sends emails or sends data to another external service.</li>
+<li>Learn mocking - <a href="https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit">https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit</a></li>
+<li>Wrapper: something which hides implementation of some other code or internally uses other code.</li>
+</ul>
+
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#dd587c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#1dbc91"><option value="#dd587c"><option value="1dbc91"><option value="#f3a530"><option value="#7fc121"></datalist>
+</section>
+
+
+
+  <noscript>
+    <p class="noscript">Unable to execute JavaScript. Some features were disabled.</p>
+  </noscript>
+
+
+
+    </footer>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol viewBox="0 0 512 512" id="adjust">
+        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+      </symbol>
+      
+      
+      
+      
+  
+<symbol viewBox="0 0 448 512" id="hashtag">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
+</symbol>
+
+
+  <symbol viewBox="0 0 320 512" id="caret-down">
+    <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
+  </symbol>
+
+
+      
+      
+      
+    </svg>
+    
+    
+    
+
+    
+    
+
+  </body>
+</html>

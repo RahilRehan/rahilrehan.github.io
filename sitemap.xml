@@ -4,10 +4,10 @@
   
   
     <url>
-      <loc>https://rahilrehan.github.io/about/</loc>
+      <loc>https://rahilrehan.github.io/posts/0005-ref-golang/</loc>
       
       
-        <lastmod>2022-01-22T09:58:32+05:30</lastmod>
+        <lastmod>2021-10-23T00:00:00+00:00</lastmod>
       
       
       
@@ -21,10 +21,61 @@
   
   
     <url>
-      <loc>https://rahilrehan.github.io/posts/my-post/</loc>
+      <loc>https://rahilrehan.github.io/posts/0004-notes-sdlc/</loc>
       
       
-        <lastmod>2022-01-22T09:29:20+05:30</lastmod>
+        <lastmod>2021-10-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+      
+      
+      
+      
+    </url>
+    
+  
+  
+    <url>
+      <loc>https://rahilrehan.github.io/posts/0001-dependency-injection/</loc>
+      
+      
+        <lastmod>2021-10-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+      
+      
+      
+      
+    </url>
+    
+  
+  
+    <url>
+      <loc>https://rahilrehan.github.io/posts/0002-microservices-concepts/</loc>
+      
+      
+        <lastmod>2021-10-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+      
+      
+      
+      
+    </url>
+    
+  
+  
+    <url>
+      <loc>https://rahilrehan.github.io/posts/0003-tdd-notes/</loc>
+      
+      
+        <lastmod>2021-10-09T00:00:00+00:00</lastmod>
       
       
       

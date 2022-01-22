@@ -1,20 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rahil Rehan</title>
+    <title></title>
     <link>https://rahilrehan.github.io/posts/</link>
     <description>Rahil Rehan&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021, Rahil Rehan; All rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Jan 2022 09:29:20 +0530</lastBuildDate><atom:link href="https://rahilrehan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
       <item>
-        <title>My Post</title>
-        <link>https://rahilrehan.github.io/posts/my-post/</link>
-        <pubDate>Sat, 22 Jan 2022 09:29:20 +0530</pubDate>
+        <title>Reference - Golang</title>
+        <link>https://rahilrehan.github.io/posts/0005-ref-golang/</link>
+        <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://rahilrehan.github.io/posts/my-post/</guid>
-        <description>This is some content</description>
+        <guid>https://rahilrehan.github.io/posts/0005-ref-golang/</guid>
+        <description>Reference - Golang</description>
+      </item>
+    
+      <item>
+        <title>Notes - Software Development Lifecycle</title>
+        <link>https://rahilrehan.github.io/posts/0004-notes-sdlc/</link>
+        <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0004-notes-sdlc/</guid>
+        <description>Software Development Lifecycle and different approaches</description>
+      </item>
+    
+      <item>
+        <title>Java/Spring - Dependency injection</title>
+        <link>https://rahilrehan.github.io/posts/0001-dependency-injection/</link>
+        <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0001-dependency-injection/</guid>
+        <description>Dependecy injection concepts in Java Spring</description>
+      </item>
+    
+      <item>
+        <title>Java/Spring - Microservices Concepts</title>
+        <link>https://rahilrehan.github.io/posts/0002-microservices-concepts/</link>
+        <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0002-microservices-concepts/</guid>
+        <description>Some important beginner microservices concepts for higher level overview</description>
+      </item>
+    
+      <item>
+        <title>Notes - Test Driven Development</title>
+        <link>https://rahilrehan.github.io/posts/0003-tdd-notes/</link>
+        <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0003-tdd-notes/</guid>
+        <description>My understanding of TDD and how I do it.</description>
       </item>
     
   </channel>
