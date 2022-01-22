@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Rahil Rehan</title>
+    <title>Rahil Rehan</title>
     <link>https://rahilrehan.github.io/categories/</link>
-    <description>Recent content in Categories on Rahil Rehan</description>
+    <description>Rahil Rehan&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rahilrehan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>concepts</title>
-      <link>https://rahilrehan.github.io/categories/concepts/</link>
-      <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rahilrehan.github.io/categories/concepts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>backend</title>
-      <link>https://rahilrehan.github.io/categories/backend/</link>
-      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rahilrehan.github.io/categories/backend/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>microservices</title>
-      <link>https://rahilrehan.github.io/categories/microservices/</link>
-      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rahilrehan.github.io/categories/microservices/</guid>
-      <description></description>
-    </item>
-    
+    <language>en</language>
+    <copyright>Copyright © 2021, Rahil Rehan; All rights reserved.</copyright><atom:link href="https://rahilrehan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

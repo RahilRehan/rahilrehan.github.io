@@ -2,21 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rahil Rehan</title>
-    <link>https://rahilrehan.github.io/</link>
+    <link>https://rahilrehan.github.io/posts/</link>
     <description>Rahil Rehan&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021, Rahil Rehan; All rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Jan 2022 09:29:20 +0530</lastBuildDate><atom:link href="https://rahilrehan.github.io/index.xml" rel="self" type="application/rss+xml" />
-      <item>
-        <title>About</title>
-        <link>https://rahilrehan.github.io/about/</link>
-        <pubDate>Sat, 22 Jan 2022 09:58:32 +0530</pubDate>
-        
-        <guid>https://rahilrehan.github.io/about/</guid>
-        <description>Hi, im rahil sde at TW</description>
-      </item>
-    
+    <lastBuildDate>Sat, 22 Jan 2022 09:29:20 +0530</lastBuildDate><atom:link href="https://rahilrehan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
       <item>
         <title>My Post</title>
         <link>https://rahilrehan.github.io/posts/my-post/</link>
