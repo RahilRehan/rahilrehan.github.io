@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.92.0">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Why databases? | </title>
+
+
+<meta name="author" content="Rahil Rehan">
+<meta name="description" content="exploring different types of databases">
+
+
+<meta name="robots" content="index follow">
+
+
+
+
+  
+    <link rel="canonical" href="https://rahilrehan.github.io/posts/0008-why-databases/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Why databases?">
+<meta property="og:description" content="exploring different types of databases">
+  <meta property="og:url" content="https://rahilrehan.github.io/posts/0008-why-databases/">
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2021-07-20">
+    <meta property="article:modified_time" content="2021-07-20">
+    <meta property="og:updated_time" content="2021-07-20">
+  
+
+  
+    <meta property="article:author" content="Rahil Rehan">
+  
+  
+  
+  
+
+
+
+
+
+
+
+  <meta name="twitter:dnt" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https:\/\/rahilrehan.github.io"
+      },
+      "headline": "Why databases?",
+      "description": "exploring different types of databases",
+      
+      "url": "https:\/\/rahilrehan.github.io\/posts\/0008-why-databases\/",
+      "inLanguage": "en",
+      "datePublished": "2021-07-20",
+      "dateModified": "2021-07-20",
+      "wordCount" : "345",
+      "publisher": {
+        "@type": "Person",
+        "name": "Rahil Rehan"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rahil Rehan",
+        "description": "I google things...",
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://rahilrehan.github.io/css/main.min.8e05f798b394986601b0549619b019d4fb9158b099e78d9b0070ef59a3ef192e.css" integrity="sha256-jgX3mLOUmGYBsFSWGbAZ1PuRWLCZ542bAHDvWaPvGS4=" crossorigin="anonymous">
+
+
+
+<noscript>
+
+  
+  
+
+  
+
+    
+      <meta name="theme-color" content="#7fc121">
+    
+
+  
+
+  
+  <link rel="stylesheet" href="https://rahilrehan.github.io/css/noscript.min.d2981530e31236824300f109882a46f4d23dffef8e9ddf6b1d309f1b843b1782.css" integrity="sha256-0pgVMOMSNoJDAPEJiCpG9NI9/&#43;&#43;Ond9rHTCfG4Q7F4I=" crossorigin="anonymous">
+
+</noscript>
+
+
+
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://rahilrehan.github.io/js/main.min.6291e9de07b9d50ccb74582d56dd1ad3b6015c25916f9fee32276f9e6bd85e3c.js" integrity="sha256-YpHp3ge51QzLdFgtVt0a07YBXCWRb5/uMidvnmvYXjw=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/"></a>
+
+
+
+
+  
+    <nav aria-label="Main menu.">
+      <ul>
+        
+          <li>
+            <a class="btn" href="/">About</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/posts/">Posts</a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>Why databases?</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2021-07-20">2021-07-20</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <h1 id="databases">Databases</h1> 
+
+
+
+
+
+
+  <h2 id="why-do-they-exist"><a class="anchor" href="#why-do-they-exist" title='Anchor for: Why do they exist?.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Why do they exist?</h2> 
+
+<p>Databases are very important in applications to store and retrieve data in efficient way.</p>
+
+
+
+
+
+  <h2 id="types"><a class="anchor" href="#types" title='Anchor for: Types.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Types</h2> 
+
+
+
+
+
+
+  <h3 id="1-relational-databses"><a class="anchor" href="#1-relational-databses" title='Anchor for: 1. Relational databses:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 1. Relational databses:</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-1"><a class="anchor" href="#why-do-they-exist-1" title='Anchor for: Why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Why do they exist</h5> 
+
+<ul>
+<li>used to store data which is related together.</li>
+<li>we split and organize this data into tables, and there are relations between these tables as the data is related together.</li>
+<li>Abides by the ACID rules (Atomicity, Consistency, Isolation, Durability)</li>
+</ul>
+
+
+
+
+
+  <h5 id="more-info"><a class="anchor" href="#more-info" title='Anchor for: more info.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> more info</h5> 
+
+<ul>
+<li>Widely used</li>
+<li>They have a structure(schema)</li>
+<li>schema defines structure, datatypes and limits</li>
+<li>SQL (Structured Query Language) to query the database</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples"><a class="anchor" href="#examples" title='Anchor for: examples.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> examples</h5> 
+
+<ul>
+<li>postgresql, mysql, oracle</li>
+<li>coucheDB, when you want to horizontally scale your database</li>
+</ul>
+
+
+
+
+
+  <h3 id="2-key-value-databases"><a class="anchor" href="#2-key-value-databases" title='Anchor for: 2. Key Value databases.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 2. Key Value databases</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-2"><a class="anchor" href="#why-do-they-exist-2" title='Anchor for: Why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Why do they exist</h5> 
+
+<ul>
+<li>simple, they just store key and value pair efficiently.</li>
+<li>GET, PUT, DELETE</li>
+</ul>
+
+
+
+
+
+  <h5 id="more-info-1"><a class="anchor" href="#more-info-1" title='Anchor for: more info.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> more info</h5> 
+
+<ul>
+<li>very fast!!!</li>
+<li>limited by memory, as data increases they suffer</li>
+<li>often used in caching</li>
+<li>sometimes used as message queue</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples-1"><a class="anchor" href="#examples-1" title='Anchor for: examples.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> examples</h5> 
+
+<ul>
+<li>redis, memcached, etcd</li>
+</ul>
+
+
+
+
+
+  <h3 id="3-wide-column-databases"><a class="anchor" href="#3-wide-column-databases" title='Anchor for: 3. Wide column databases.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 3. Wide column databases</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-3"><a class="anchor" href="#why-do-they-exist-3" title='Anchor for: why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> why do they exist</h5> 
+
+<ul>
+<li>if we want a key value store but the value needs to have multiple columns</li>
+<li>schema less</li>
+</ul>
+
+
+
+
+
+  <h5 id="more-info-2"><a class="anchor" href="#more-info-2" title='Anchor for: more info.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> more info</h5> 
+
+<ul>
+<li>scalable</li>
+<li>no joins</li>
+<li>can handle unstructured data. for example, can be used in time series analysis</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples-2"><a class="anchor" href="#examples-2" title='Anchor for: examples.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> examples</h5> 
+
+<ul>
+<li>cassandra, hbase</li>
+</ul>
+
+
+
+
+
+  <h3 id="4-document-databases"><a class="anchor" href="#4-document-databases" title='Anchor for: 4. Document databases.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 4. Document databases</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-4"><a class="anchor" href="#why-do-they-exist-4" title='Anchor for: why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> why do they exist</h5> 
+
+<ul>
+<li>unstructured databses, can be almost used for anything.</li>
+<li>so if you are starting out without any schema and have no idea what schema might become in future, use this. i.e if data is related together, move away from this</li>
+</ul>
+
+
+
+
+
+  <h5 id="more-info-3"><a class="anchor" href="#more-info-3" title='Anchor for: more info.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> more info</h5> 
+
+<ul>
+<li>documents -&gt; containers for key value pairs</li>
+<li>collection -&gt; set of documents together</li>
+<li>unstructured/schemaless, so no schema</li>
+<li>no joins</li>
+<li>nested data</li>
+<li>updates and writes are slow but reads are fast</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples-3"><a class="anchor" href="#examples-3" title='Anchor for: Examples:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Examples:</h5> 
+
+<ul>
+<li>mongoDB, dynamoDB, couchDB</li>
+</ul>
+
+
+
+
+
+  <h3 id="graph-databases"><a class="anchor" href="#graph-databases" title='Anchor for: Graph databases.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Graph databases</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-5"><a class="anchor" href="#why-do-they-exist-5" title='Anchor for: why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> why do they exist</h5> 
+
+<ul>
+<li>correletd data</li>
+<li>relationship between data, ex: users, comments, friends etc.</li>
+<li>use this if you can visualize the application database structure as graph</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples-4"><a class="anchor" href="#examples-4" title='Anchor for: examples:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> examples:</h5> 
+
+<ul>
+<li>Neo4g</li>
+</ul>
+
+
+
+
+
+  <h3 id="search-databases"><a class="anchor" href="#search-databases" title='Anchor for: Search databases.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Search databases</h3> 
+
+
+
+
+
+
+  <h5 id="why-do-they-exist-6"><a class="anchor" href="#why-do-they-exist-6" title='Anchor for: why do they exist.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> why do they exist</h5> 
+
+<ul>
+<li>given some data and query, you should be able to search in it(asap)</li>
+<li>they create a posting list internally to return answers to the queries.</li>
+</ul>
+
+
+
+
+
+  <h5 id="examples-5"><a class="anchor" href="#examples-5" title='Anchor for: examples:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> examples:</h5> 
+
+<ul>
+<li>
+<p>elasticsearch</p>
+</li>
+<li>
+<p>You can always have a combination of different databases😊.</p>
+</li>
+</ul>
+
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#7fc121" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#1dbc91"><option value="#7fc121"><option value="1dbc91"><option value="#dd587c"><option value="#f3a530"></datalist>
+</section>
+
+
+
+  <noscript>
+    <p class="noscript">Unable to execute JavaScript. Some features were disabled.</p>
+  </noscript>
+
+
+
+    </footer>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol viewBox="0 0 512 512" id="adjust">
+        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+      </symbol>
+      
+      
+      
+      
+  
+<symbol viewBox="0 0 448 512" id="hashtag">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
+</symbol>
+
+
+  <symbol viewBox="0 0 320 512" id="caret-down">
+    <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
+  </symbol>
+
+
+      
+      
+      
+    </svg>
+    
+    
+    
+
+    
+    
+
+  </body>
+</html>

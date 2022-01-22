@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.92.0">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Computer Networks Basics | </title>
+
+
+<meta name="author" content="Rahil Rehan">
+<meta name="description" content="Absolute basic network concepts for devs">
+
+
+<meta name="robots" content="index follow">
+
+
+
+
+  
+    <link rel="canonical" href="https://rahilrehan.github.io/posts/0010-networking-basics/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Computer Networks Basics">
+<meta property="og:description" content="Absolute basic network concepts for devs">
+  <meta property="og:url" content="https://rahilrehan.github.io/posts/0010-networking-basics/">
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2021-08-30">
+    <meta property="article:modified_time" content="2021-08-30">
+    <meta property="og:updated_time" content="2021-08-30">
+  
+
+  
+    <meta property="article:author" content="Rahil Rehan">
+  
+  
+  
+  
+
+
+
+
+
+
+
+  <meta name="twitter:dnt" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https:\/\/rahilrehan.github.io"
+      },
+      "headline": "Computer Networks Basics",
+      "description": "Absolute basic network concepts for devs",
+      
+      "url": "https:\/\/rahilrehan.github.io\/posts\/0010-networking-basics\/",
+      "inLanguage": "en",
+      "datePublished": "2021-08-30",
+      "dateModified": "2021-08-30",
+      "wordCount" : "1024",
+      "publisher": {
+        "@type": "Person",
+        "name": "Rahil Rehan"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rahil Rehan",
+        "description": "I google things...",
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://rahilrehan.github.io/css/main.min.8e05f798b394986601b0549619b019d4fb9158b099e78d9b0070ef59a3ef192e.css" integrity="sha256-jgX3mLOUmGYBsFSWGbAZ1PuRWLCZ542bAHDvWaPvGS4=" crossorigin="anonymous">
+
+
+
+<noscript>
+
+  
+  
+
+  
+
+    
+      <meta name="theme-color" content="#7fc121">
+    
+
+  
+
+  
+  <link rel="stylesheet" href="https://rahilrehan.github.io/css/noscript.min.d2981530e31236824300f109882a46f4d23dffef8e9ddf6b1d309f1b843b1782.css" integrity="sha256-0pgVMOMSNoJDAPEJiCpG9NI9/&#43;&#43;Ond9rHTCfG4Q7F4I=" crossorigin="anonymous">
+
+</noscript>
+
+
+
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://rahilrehan.github.io/js/main.min.6291e9de07b9d50ccb74582d56dd1ad3b6015c25916f9fee32276f9e6bd85e3c.js" integrity="sha256-YpHp3ge51QzLdFgtVt0a07YBXCWRb5/uMidvnmvYXjw=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/"></a>
+
+
+
+
+  
+    <nav aria-label="Main menu.">
+      <ul>
+        
+          <li>
+            <a class="btn" href="/">About</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/posts/">Posts</a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>Computer Networks Basics</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2021-08-30">2021-08-30</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <h4 id="how-do-two-devices-on-the-internet-send-data-between-them"><a class="anchor" href="#how-do-two-devices-on-the-internet-send-data-between-them" title='Anchor for: How do two devices on the internet send data between them?.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> How do two devices on the internet send data between them?</h4> 
+
+<p>Well, to answer this question we need to understand computer networks. In this blog, we will briefly discuss the entire process.</p>
+<p>Before we get into any lower-level details, let&rsquo;s first get an overview of the process, and then we&rsquo;ll dwell deep after that.</p>
+
+
+
+
+
+  <h4 id="the-osi-reference-model"><a class="anchor" href="#the-osi-reference-model" title='Anchor for: The OSI reference model.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The OSI reference model</h4> 
+
+<p>This is a proposed conceptual model that characterizes and standardizes the communication functions.</p>
+
+
+
+
+
+  <h5 id="the-7-proposed-layers"><a class="anchor" href="#the-7-proposed-layers" title='Anchor for: The 7 proposed layers:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The 7 proposed layers:</h5> 
+
+<ol>
+<li>Application Layer</li>
+<li>Presentation Layer</li>
+<li>Session Layer</li>
+<li>Transport Layer</li>
+<li>Network Layer</li>
+<li>Datalink Layer</li>
+<li>Physical Layer</li>
+</ol>
+
+
+
+
+
+  <h4 id="lets-look-at-each-one-in-detail"><a class="anchor" href="#lets-look-at-each-one-in-detail" title='Anchor for: Let&rsquo;s look at each one in detail..'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Let&rsquo;s look at each one in detail.</h4> 
+
+
+
+
+
+
+  <h5 id="1-application-layer"><a class="anchor" href="#1-application-layer" title='Anchor for: 1. Application Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 1. Application Layer</h5> 
+
+<p>In the application layer, there are a bunch of protocols that are used for various tasks.</p>
+<p><em>Protocol</em>: is a set of rules agreed upon by all parties for some process.
+Examples of protocols in the application layer: SMTP, HTTP, HTTPS, Telnet, RDP, etc.</p>
+<p>For example, outlook may use SMTP(Simple Mail Transfer Protocol) to send and receive emails, and all this happens at the application level. So an application manages these protocols. For example, a browser like firefox has to support this protocol for things to work. The same concept applies for HTTP and https(which are already baked into browsers).</p>
+
+
+
+
+
+  <h5 id="2-presentation-layer"><a class="anchor" href="#2-presentation-layer" title='Anchor for: 2. Presentation Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 2. Presentation Layer</h5> 
+
+<p>Some very important services like translation, data compression, encryption, etc are provided by this layer. Again,</p>
+<ul>
+<li><em>Translation</em> - From Unicode(text) to binary.</li>
+<li><em>Compression</em> - Usage of an algorithm like Huffman encoding to compress binary data</li>
+<li><em>Encryption</em> - Passwords etc (SSL)
+&hellip; and many more
+All of this buzz happens at the presentation layer. Perfect naming for the layer, lol!</li>
+</ul>
+
+
+
+
+
+  <h5 id="3-session-layer"><a class="anchor" href="#3-session-layer" title='Anchor for: 3. Session Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 3. Session Layer</h5> 
+
+<p>Establish, Manage, and terminate connections between services. Examples: Authorization, Authentication, Sessions.</p>
+<p>Note: Did you ever observe that modern browsers provide functionalities of all the above layers?</p>
+
+
+
+
+
+  <h5 id="4-transport-layer"><a class="anchor" href="#4-transport-layer" title='Anchor for: 4. Transport Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 4. Transport Layer</h5> 
+
+<ul>
+<li>
+<p><em>Segmentation</em>: data is broken down into segments and sent over the network.</p>
+</li>
+<li>
+<p><em>Flow Control</em>: devices may have different networking capabilities and maybe one device can operate faster(like send data at 100mbps) than the other(10mbps). Well, the transport layer takes care of this problem. We will know how soon, promise : )</p>
+</li>
+<li>
+<p><em>Error Control</em>: while transferring segments, some segments may get lost! Again, the transport layer got our back. It uses checksums to find such errors in transmission.</p>
+</li>
+<li>
+<p><em>Port numbers</em>: Many applications on our device may be using the internet. The segments may get confused when they reach the device as they don&rsquo;t know their destination application. To avoid this confusion, we assign port numbers to applications as well as to segments before sending them from the source. So when a segment reaches a destination device it knows which application it should go to.</p>
+</li>
+</ul>
+<p>Finally a segment looks like this (source port + destination port + sequence number + acknowledgment + length) Wireshark example: Src Port: 6648, Dst Port: 443, Seq: 24, Ack: 251, Len: 23</p>
+
+
+
+
+
+  <h5 id="5-network-layer"><a class="anchor" href="#5-network-layer" title='Anchor for: 5. Network Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 5. Network Layer</h5> 
+
+<p>After segments are made we attach some more information to the segment that is the source IP and destination IP. Just like the port number which helps segments to reach a particular application on the destination device, IP address is helpful in reaching a particular device on the network.</p>
+<p>segment + source and destination IP is called packet. IP address is just 32 bits which can uniquely determine about 4294967296 devices, but I&rsquo;m sure there are more devices than that number</p>
+<p>As there can be many devices on your network like your phone, pc, laptop. Each of them has a unique address and thus the network layer takes care of it. Make sense? cool.</p>
+<p><em>IP(Internet Protocol)</em> is again just unique over a network but not on the whole internet. We will know more about it in further blogs.</p>
+<p>Routing, DNS, Masking are also functionalities provided by this layer.</p>
+<p><em>Routing</em>: helps in the path determination of packet. DNS: it is a map of key-value pairs. example: <a href="http://www.google.com">www.google.com</a> may also have an IP(like 192.168.32.3 and changing) but who can remember it all the time? so <a href="http://www.google.com">www.google.com</a> is mapped to some IP address for ease.</p>
+
+
+
+
+
+  <h5 id="6-data-link-layer"><a class="anchor" href="#6-data-link-layer" title='Anchor for: 6. Data Link Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 6. Data Link Layer</h5> 
+
+<p>As we already discussed IP addresses are just unique over the network but not over the internet we need one more level of uniqueness(remember there are millions of devices!). We use the MAC address which is 48 bits! and every device which has networking capabilities have their own unique mac address on the entire internet. phew!!</p>
+<p>Now, the frame is a combination of packet + source and destination mac addresses + some extra tail data(some more checksum to avoid data loss at this level).</p>
+<p>some more functionalities provided by this layer are:</p>
+<ul>
+<li><em>Access to media</em>: Determination of media for transfers (wired, wireless, optical, etc)</li>
+<li><em>Media-Access Control</em>: avoiding collision over the media, mac address takes care of this.
+Error detection: tail data is used to perform checksum here. Read more about checksum</li>
+</ul>
+
+
+
+
+
+  <h5 id="7-physical-layer"><a class="anchor" href="#7-physical-layer" title='Anchor for: 7. Physical Layer:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 7. Physical Layer:</h5> 
+
+<p>Bit level data transfer happens at this layer, i.e bits are converted into some form like signals, light flashes or radio signals and then transmitted. We won&rsquo;t discuss much of physical layer as I don&rsquo;t think it is that important for Software Engineering. If you are interested in exploring, be my guest.</p>
+<ul>
+<li>
+<p>Transmission Media:</p>
+<ul>
+<li><em>Guided</em> - There is physical medium like wires(co-axial, twisted pair cables) on which transmission takes place.</li>
+<li><em>Unguided</em> - Medium of transfer is air, examples are Wifi, infrared and radio signals.</li>
+</ul>
+</li>
+<li>
+<p>Transmission Modes:
+When two devices are connected over a medium we can have three modes of transmission</p>
+<ul>
+<li><em>Simplex</em>: Data can flow only in one direction.</li>
+<li><em>Half-duple</em>: Data can flow in both directions but not at the same time.</li>
+<li><em>Full-duplex</em>: Data can flow in both directions and simultaneously</li>
+</ul>
+</li>
+</ul>
+<p>I would highly recommend you to read about Manchester encoding and differential Manchester encoding to get an understanding of how signals can carry bit information.</p>
+<p>Finally, data reaches from the application layer to the physical layer and then sent over to another device. Now data is decoded backward. i.e going up from the physical layer to the application layer. It is just amazon delivery. Packing and boxing everything to unboxing. Just relate and you will be surprised. We will dive deep soon, hopefully! See you again!</p>
+<p>Visit my personal blog at: <a href="https://rahilrehan.github.io/">https://rahilrehan.github.io/</a> 🙈</p>
+
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#7fc121" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#1dbc91"><option value="#7fc121"><option value="1dbc91"><option value="#dd587c"><option value="#f3a530"></datalist>
+</section>
+
+
+
+  <noscript>
+    <p class="noscript">Unable to execute JavaScript. Some features were disabled.</p>
+  </noscript>
+
+
+
+    </footer>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol viewBox="0 0 512 512" id="adjust">
+        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+      </symbol>
+      
+      
+      
+      
+  
+<symbol viewBox="0 0 448 512" id="hashtag">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
+</symbol>
+
+
+  <symbol viewBox="0 0 320 512" id="caret-down">
+    <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
+  </symbol>
+
+
+      
+      
+      
+    </svg>
+    
+    
+    
+
+    
+    
+
+  </body>
+</html>

@@ -53,5 +53,50 @@
         <description>My understanding of TDD and how I do it.</description>
       </item>
     
+      <item>
+        <title>Computer Networks Basics</title>
+        <link>https://rahilrehan.github.io/posts/0010-networking-basics/</link>
+        <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0010-networking-basics/</guid>
+        <description>Absolute basic network concepts for devs</description>
+      </item>
+    
+      <item>
+        <title>Reference - Docker</title>
+        <link>https://rahilrehan.github.io/posts/0009-ref-docker/</link>
+        <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0009-ref-docker/</guid>
+        <description>Complete docker reference</description>
+      </item>
+    
+      <item>
+        <title>Why databases?</title>
+        <link>https://rahilrehan.github.io/posts/0008-why-databases/</link>
+        <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0008-why-databases/</guid>
+        <description>exploring different types of databases</description>
+      </item>
+    
+      <item>
+        <title>Operating System and shell scripting</title>
+        <link>https://rahilrehan.github.io/posts/0007-learn-shell-scripting/</link>
+        <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0007-learn-shell-scripting/</guid>
+        <description>Some basic linux knowledge</description>
+      </item>
+    
+      <item>
+        <title>Linux Basics</title>
+        <link>https://rahilrehan.github.io/posts/0006-learn-linux/</link>
+        <pubDate>Tue, 13 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://rahilrehan.github.io/posts/0006-learn-linux/</guid>
+        <description>Some basic linux knowledge</description>
+      </item>
+    
   </channel>
 </rss>

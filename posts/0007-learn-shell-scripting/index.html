@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.92.0">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Operating System and shell scripting | </title>
+
+
+<meta name="author" content="Rahil Rehan">
+<meta name="description" content="Some basic linux knowledge">
+
+
+<meta name="robots" content="index follow">
+
+
+
+
+  
+    <link rel="canonical" href="https://rahilrehan.github.io/posts/0007-learn-shell-scripting/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Operating System and shell scripting">
+<meta property="og:description" content="Some basic linux knowledge">
+  <meta property="og:url" content="https://rahilrehan.github.io/posts/0007-learn-shell-scripting/">
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2021-07-19">
+    <meta property="article:modified_time" content="2021-07-19">
+    <meta property="og:updated_time" content="2021-07-19">
+  
+
+  
+    <meta property="article:author" content="Rahil Rehan">
+  
+  
+  
+  
+
+
+
+
+
+
+
+  <meta name="twitter:dnt" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+      
+      
+    
+
+  
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https:\/\/rahilrehan.github.io"
+      },
+      "headline": "Operating System and shell scripting",
+      "description": "Some basic linux knowledge",
+      
+      "url": "https:\/\/rahilrehan.github.io\/posts\/0007-learn-shell-scripting\/",
+      "inLanguage": "en",
+      "datePublished": "2021-07-19",
+      "dateModified": "2021-07-19",
+      "wordCount" : "1171",
+      "publisher": {
+        "@type": "Person",
+        "name": "Rahil Rehan"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rahil Rehan",
+        "description": "I google things...",
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://rahilrehan.github.io/css/main.min.8e05f798b394986601b0549619b019d4fb9158b099e78d9b0070ef59a3ef192e.css" integrity="sha256-jgX3mLOUmGYBsFSWGbAZ1PuRWLCZ542bAHDvWaPvGS4=" crossorigin="anonymous">
+
+
+
+<noscript>
+
+  
+  
+
+  
+
+    
+      <meta name="theme-color" content="#7fc121">
+    
+
+  
+
+  
+  <link rel="stylesheet" href="https://rahilrehan.github.io/css/noscript.min.d2981530e31236824300f109882a46f4d23dffef8e9ddf6b1d309f1b843b1782.css" integrity="sha256-0pgVMOMSNoJDAPEJiCpG9NI9/&#43;&#43;Ond9rHTCfG4Q7F4I=" crossorigin="anonymous">
+
+</noscript>
+
+
+
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://rahilrehan.github.io/js/main.min.6291e9de07b9d50ccb74582d56dd1ad3b6015c25916f9fee32276f9e6bd85e3c.js" integrity="sha256-YpHp3ge51QzLdFgtVt0a07YBXCWRb5/uMidvnmvYXjw=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/"></a>
+
+
+
+
+  
+    <nav aria-label="Main menu.">
+      <ul>
+        
+          <li>
+            <a class="btn" href="/">About</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/posts/">Posts</a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>Operating System and shell scripting</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2021-07-19">2021-07-19</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <h3 id="operating-system"><a class="anchor" href="#operating-system" title='Anchor for: Operating System.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Operating System</h3> 
+
+<ul>
+<li>Operating system acts like a translator between the software layer(applications) and hardware components</li>
+<li>It manages and allocates resources</li>
+<li>It does memory management(RAM)</li>
+<li>It does store management(ROM)</li>
+<li>manages file system
+<ul>
+<li>NTFS, fat, exFAT …etc</li>
+</ul>
+</li>
+<li>manages I/O devices</li>
+<li>manages security and permissions : manage users and permissions</li>
+<li>manages networking aspects</li>
+<li>Operating system components (4 main components in top to bottom order)
+<ul>
+<li>user applications (very abstract)</li>
+<li>underlying operating system (android, Linux, windows, macOS)</li>
+<li>kernel: is the component which actually interacts with hardware</li>
+<li>hardware components</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+  <h3 id="history"><a class="anchor" href="#history" title='Anchor for: History.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> History</h3> 
+
+<ul>
+<li>UNIX was developed by bell labs</li>
+<li>many kernels branched out of UNIX</li>
+<li>one of them is BSD</li>
+<li>macOS(kernel) is based on BSD(NextStep to be exact), based on means literally the same code</li>
+<li>Linux was built with same design philosophy as UNIX, but was written from scratch(plan was to make it work on low-cost hardware)</li>
+<li>to keep them compatible, standards were introduced → (POSIX)</li>
+<li>both Linux and macOS are POSIX compliant</li>
+</ul>
+
+
+
+
+
+  <h3 id="virtualization"><a class="anchor" href="#virtualization" title='Anchor for: virtualization.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> virtualization</h3> 
+
+<ul>
+<li>running another operating system on top the other</li>
+<li>can be done using hypervisor(virtual box, VMware, vagrant)</li>
+<li>hypervisor creates virtual resources on top of existing hardware</li>
+<li>hypervisors type1 - do not need OS, they directly run on hardware(used on servers)</li>
+<li>hypervisors type2 - runs on OS as an application</li>
+<li>snapshots/images are copy of OS at a particular time, including all files and configs.</li>
+<li>These snapshots/images are very useful when the real running instances face issues.</li>
+<li>You can just run this image which was an exact copy of the running instance</li>
+<li>these are very similar to images in docker</li>
+<li>virtual machines have their own network → virtual network</li>
+</ul>
+
+
+
+
+
+  <h3 id="linux-file-system"><a class="anchor" href="#linux-file-system" title='Anchor for: Linux file system.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Linux file system</h3> 
+
+<ul>
+<li>has hierarchical tree structure</li>
+<li>&ldquo;/&rdquo; root directory, everything is placed here</li>
+<li>&ldquo;/home&rdquo; contains home directories of all non-root users</li>
+<li>&ldquo;/root&rdquo; root user&rsquo;s home directory</li>
+<li>&ldquo;/bin&rdquo; binaries, basic commands, can be used by normal users directly</li>
+<li>&ldquo;sbin&rdquo; system binaries, advanced commands, needs superuser permissions to run</li>
+<li>&ldquo;/lib&rdquo; essential shared libraries that /bin and /sbin executables use</li>
+<li>&ldquo;/lib&rdquo; is similar to &ldquo;/Library&rdquo; in macOS</li>
+<li>&ldquo;/usr&rdquo; user location before &ldquo;/home&rdquo; folder was added to Linux</li>
+<li>&ldquo;/usr/bin&rdquo; and &ldquo;/usr/sbin&rdquo; ..etc have more commands than &ldquo;/bin&rdquo; &ldquo;/sbin&rdquo;. This split was made due to storage limitations and to split root binary folders and user binary folders</li>
+<li>usually commands we run are run from &ldquo;/usr/bin&rdquo; and &ldquo;/usr/sbin&rdquo;</li>
+<li>&ldquo;/usr/local&rdquo; is place where programs you install on computer reside, third party applications.</li>
+<li>if you install anything on &ldquo;/usr/local&rdquo;, they will be available for all users!</li>
+<li>&ldquo;/opt&rdquo;, third party application installations, stay here. Will be available system wide</li>
+<li>if the application that you install is split into multiple components like libs, configs etc. then use &ldquo;*/bin&rdquo;. If the application is just packaged into one then use &ldquo;/opt&rdquo;(ex: IDEs, browsers)</li>
+<li>&ldquo;/boot&rdquo;, files for booting the OS</li>
+<li>&ldquo;/etc&rdquo;, main configuration location of all the application and utilities, Linux user data and password ..etc</li>
+<li>&ldquo;/dev&rdquo; location of device files. All files that the system need to interact with any device are stored here.</li>
+<li>&ldquo;/var&rdquo; store logs of your operating system or any application,</li>
+<li>&ldquo;/var/cache&rdquo; contains cache data from application programs</li>
+<li>&ldquo;/tmp&rdquo; temporary resources required for some processes are kept here temporarily</li>
+<li>&ldquo;/media&rdquo; contains subdirectories, where removable media devices inserted into computer are mounted, happen automatically</li>
+<li>&ldquo;/mnt&rdquo; if you want to mount temporary file systems, you should mount manually, sysadmins historically use this location to mount</li>
+<li>hidden files in linux start with.</li>
+<li>all the dot files can be configurations files, temp files created by operating systems</li>
+</ul>
+
+
+
+
+
+  <h3 id="package-managers-linux"><a class="anchor" href="#package-managers-linux" title='Anchor for: package managers Linux.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> package managers Linux</h3> 
+
+<ul>
+<li>every software package has dependencies(depends on other software)</li>
+<li>and software package is split across multiple files(libs, config …etc)</li>
+<li>package manager helps in resolving deps and split files accordingly to folders</li>
+<li>it also cleans the leftover dependencies and files when you purge a package.</li>
+</ul>
+
+
+
+
+
+  <h3 id="apt"><a class="anchor" href="#apt" title='Anchor for: apt.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> apt</h3> 
+
+<ul>
+<li><code>sudo apt install package-name</code></li>
+<li><code>sudo apt remove package-name</code></li>
+<li>Apt vs apt-get
+<ul>
+<li>apt is more user-friendly, has fewer commands compared to apt-get has been there since beginning</li>
+</ul>
+</li>
+<li>where are packages stored? Repositories</li>
+<li>always index and update repos on latest OS installation
+<ul>
+<li><code>sudo apt update</code></li>
+<li>list all repositories: <code>cat /etc/apy/sources.list</code></li>
+</ul>
+</li>
+<li>snap package manager that has packages(snaps) which work across multiple distros
+<ul>
+<li>larger because app is bundled with its deps</li>
+<li>snap store: acts as a repository for snap</li>
+<li>Snapcraft: command and framework used to build and publish snaps</li>
+</ul>
+</li>
+<li><code>sudo add-apt-repository &quot;link&quot;</code></li>
+<li>PPA: personal package archive, private repositories to distribute software
+<ul>
+<li>usually used by devs, but be careful as they are not verified by any distribution</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+  <h3 id="vi--vim"><a class="anchor" href="#vi--vim" title='Anchor for: vi / vim.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> vi / vim</h3> 
+
+<ul>
+<li>ESC to switch between insert and command mode</li>
+<li>:wq to save and exit in command mode</li>
+<li>:q! to quit without saving the changes</li>
+<li>my preference is to use <code>micro</code></li>
+</ul>
+
+
+
+
+
+  <h3 id="user-accounts-and-groups"><a class="anchor" href="#user-accounts-and-groups" title='Anchor for: User accounts and groups.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> User accounts and groups</h3> 
+
+<ul>
+<li>root user: unrestricted permissions (only 1 per computer)</li>
+<li>user accounts: regular user we create to log in</li>
+<li>service user: relevant for Linux server distros (best practice)
+<ul>
+<li>ex: MySQL user will start MySQL application</li>
+<li>ex: run docker app with specific user</li>
+</ul>
+</li>
+<li><code>sudo adduser tom</code> → adds tom as a new user</li>
+<li><code>sudo passwd tom</code> → to set password of new user</li>
+<li><code>cat /etc/passwd</code> → file which has list of users</li>
+<li><code>su - tom</code> → to switch to tom user</li>
+<li><code>su -</code> → will log you in as root user</li>
+<li><code>sudo addgroup devops</code> → add a new group DevOps</li>
+<li>by default when a new user is added a group with same username is created.</li>
+<li><code>sudo /etc/group</code> → list all groups</li>
+<li><code>deluser</code> and <code>delgroup</code></li>
+<li>above commands are interactive</li>
+<li>there are also <code>useradd</code> and <code>groupadd</code> <code>userdel</code> <code>groupdel</code> commands which are very similar but are low level, and you need to provide information yourself. Use them when writing shell scripts, else use the above commands.</li>
+<li><code>sudo usermod -g devops tom</code> makes devops the primary group of user tom,</li>
+<li>user has one primary group and multiple secondary groups</li>
+<li><code>sudo usermod -aG group1 group2 .. tom</code> → appends new groups to user toms previous groups list. Use <code>-G</code> to override the group list.</li>
+<li><code>groups</code> to list groups of current user or <code>groups user</code> to list groups of specified user.</li>
+<li><code>sudo gpasswd -d nicole devops</code> → removes Nicole from devops groups</li>
+</ul>
+
+
+
+
+
+  <h3 id="file-ownership-and-permissions"><a class="anchor" href="#file-ownership-and-permissions" title='Anchor for: file ownership and permissions.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> file ownership and permissions</h3> 
+
+<ul>
+<li><code>ls -lsah</code></li>
+<li><code>sudo chown username:groupname filename</code> → to change permissions of file</li>
+<li><code>drwxrwxr-x</code> user:group:others(everyone-else)</li>
+<li>d - directory</li>
+<li>
+<ul>
+<li>regular file</li>
+</ul>
+</li>
+<li>l symbolic link</li>
+<li>rwx, read write execute and <code>-</code> for no permission</li>
+<li><code>chmod -x file</code> to remove execute permissions</li>
+<li><code>chmod g-w file </code> to remove write permission from group</li>
+<li><code>chmod o+x file </code> to make executable for others</li>
+<li><code>chmod +x file </code> to make executable for all users</li>
+<li><code>chmod u+x file </code> to make executable for current user</li>
+<li><code>chmod g=r-x file </code> to give specific access</li>
+<li>you can also use binary numbers for permissions</li>
+<li>4: read, 2: write, 1: execute, 0: no permission</li>
+<li>example: 777 to give rwx to everyone (similar to rwxrwxrwx)</li>
+</ul>
+
+
+
+
+
+  <h3 id="piping-and-redirects-in-linux-cli"><a class="anchor" href="#piping-and-redirects-in-linux-cli" title='Anchor for: piping and redirects in Linux CLI.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> piping and redirects in Linux CLI</h3> 
+
+<ul>
+<li>pass output of one command to another</li>
+<li><code>cat /var/log/syslog | less</code></li>
+<li>less, show things one page at a time and allows moving backward and forward</li>
+<li><code>history | grep sudo | less</code></li>
+<li>grep is a search tool</li>
+<li><code>history | grep &quot;sudo chmod&quot; &gt; temp.txt</code> redirects outputs to file</li>
+<li><code>history | grep &quot;sudo rm&quot; &gt; temp.txt</code> redirects outputs and appends to file</li>
+</ul>
+
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#7fc121" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#1dbc91"><option value="#7fc121"><option value="1dbc91"><option value="#dd587c"><option value="#f3a530"></datalist>
+</section>
+
+
+
+  <noscript>
+    <p class="noscript">Unable to execute JavaScript. Some features were disabled.</p>
+  </noscript>
+
+
+
+    </footer>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol viewBox="0 0 512 512" id="adjust">
+        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+      </symbol>
+      
+      
+      
+      
+  
+<symbol viewBox="0 0 448 512" id="hashtag">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
+</symbol>
+
+
+  <symbol viewBox="0 0 320 512" id="caret-down">
+    <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
+  </symbol>
+
+
+      
+      
+      
+    </svg>
+    
+    
+    
+
+    
+    
+
+  </body>
+</html>
