@@ -414,7 +414,7 @@
       "inLanguage": "en",
       "datePublished": "2021-08-30",
       "dateModified": "2021-08-30",
-      "wordCount" : "1024",
+      "wordCount" : "1183",
       "publisher": {
         "@type": "Person",
         "name": "Rahil Rehan"
@@ -577,24 +577,24 @@
 
 
 
-  <h4 id="how-do-two-devices-on-the-internet-send-data-between-them"><a class="anchor" href="#how-do-two-devices-on-the-internet-send-data-between-them" title='Anchor for: How do two devices on the internet send data between them?.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> How do two devices on the internet send data between them?</h4> 
+  <h2 id="have-you-ever-wondered-how-data-is-transferred-from-one-device-to-another"><a class="anchor" href="#have-you-ever-wondered-how-data-is-transferred-from-one-device-to-another" title='Anchor for: Have you ever wondered how data is transferred from one device to another?.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Have you ever wondered how data is transferred from one device to another?</h2> 
 
-<p>Well, to answer this question we need to understand computer networks. In this blog, we will briefly discuss the entire process.</p>
-<p>Before we get into any lower-level details, let&rsquo;s first get an overview of the process, and then we&rsquo;ll dwell deep after that.</p>
-
-
-
-
-
-  <h4 id="the-osi-reference-model"><a class="anchor" href="#the-osi-reference-model" title='Anchor for: The OSI reference model.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The OSI reference model</h4> 
-
-<p>This is a proposed conceptual model that characterizes and standardizes the communication functions.</p>
+<p>Well, to answer this question we need to understand computer networks. In this blog, we will briefly discuss the entire process in one go.</p>
+<p>Before we get into any lower-level details, let&rsquo;s first get an overview of the process, and we&rsquo;ll dwell deep later.</p>
 
 
 
 
 
-  <h5 id="the-7-proposed-layers"><a class="anchor" href="#the-7-proposed-layers" title='Anchor for: The 7 proposed layers:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The 7 proposed layers:</h5> 
+  <h2 id="the-osi-reference-model"><a class="anchor" href="#the-osi-reference-model" title='Anchor for: The OSI reference model.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The OSI reference model</h2> 
+
+<p>This is a proposed conceptual model that characterizes communication functions.</p>
+
+
+
+
+
+  <h3 id="the-7-proposed-layers"><a class="anchor" href="#the-7-proposed-layers" title='Anchor for: The 7 proposed layers:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> The 7 proposed layers:</h3> 
 
 <ol>
 <li>Application Layer</li>
@@ -602,130 +602,148 @@
 <li>Session Layer</li>
 <li>Transport Layer</li>
 <li>Network Layer</li>
-<li>Datalink Layer</li>
+<li>Data-link Layer</li>
 <li>Physical Layer</li>
 </ol>
+<p>Again, this is a proposed layer. Real communication models(like TCP/IP model) may not have all the layers, or more interestingly some layers combined to form one.</p>
 
 
 
 
 
-  <h4 id="lets-look-at-each-one-in-detail"><a class="anchor" href="#lets-look-at-each-one-in-detail" title='Anchor for: Let&rsquo;s look at each one in detail..'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Let&rsquo;s look at each one in detail.</h4> 
+  <h3 id="1-application-layer"><a class="anchor" href="#1-application-layer" title='Anchor for: 1. Application Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 1. Application Layer</h3> 
 
-
-
-
-
-
-  <h5 id="1-application-layer"><a class="anchor" href="#1-application-layer" title='Anchor for: 1. Application Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 1. Application Layer</h5> 
-
+<p>Let&rsquo;s first understand what protocol means before talking about the application layer.</p>
+<p>**Protocol: **
+The protocol is a set of rules agreed upon by all parties for some process. Once a protocol is proposed, parties use the same defined steps to perform a task.</p>
 <p>In the application layer, there are a bunch of protocols that are used for various tasks.</p>
-<p><em>Protocol</em>: is a set of rules agreed upon by all parties for some process.
-Examples of protocols in the application layer: SMTP, HTTP, HTTPS, Telnet, RDP, etc.</p>
-<p>For example, outlook may use SMTP(Simple Mail Transfer Protocol) to send and receive emails, and all this happens at the application level. So an application manages these protocols. For example, a browser like firefox has to support this protocol for things to work. The same concept applies for HTTP and https(which are already baked into browsers).</p>
+<p>For example, the Gmail application may be using SMTP(Simple Mail Transfer Protocol) to send and receive emails, and all this happens at the application level(here the application is Gmail or it can be your browser). So, this protocol must be supported by the application itself.
+The same concept applies to HTTP and HTTPS(which are already baked into browsers).</p>
+<p>Some more examples of protocols in the layer: SMTP, HTTP, HTTPS, Telnet, RDP, etc.</p>
 
 
 
 
 
-  <h5 id="2-presentation-layer"><a class="anchor" href="#2-presentation-layer" title='Anchor for: 2. Presentation Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 2. Presentation Layer</h5> 
+  <h3 id="2-presentation-layer"><a class="anchor" href="#2-presentation-layer" title='Anchor for: 2. Presentation Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 2. Presentation Layer</h3> 
 
-<p>Some very important services like translation, data compression, encryption, etc are provided by this layer. Again,</p>
+<p>Some very important services like translation, data compression, encryption, etc are provided by this layer.</p>
+<p>Data after going through specified steps in protocols from the application layer undergo the below steps in the presentation layer now.</p>
+<p><strong>Translation</strong>
+Data that is in text format(Unicode or utf-8) is converted to binary form.</p>
+<p><strong>Compression</strong>
+Binary data from the above steps are compressed algorithms like Huffman encoding.</p>
+<p><strong>Encryption</strong> Encryption of secret data(like passwords, SSL certificates) is part of this process. Symmetric and asymmetric encryption protocols act here.</p>
+<p>&hellip; and many more, there are tons of other things which happen here but these were the important ones.</p>
+<p>A lot of fancy buzz happens at the presentation layer. Perfect naming for the layer, lol!</p>
+
+
+
+
+
+  <h3 id="3-session-layer"><a class="anchor" href="#3-session-layer" title='Anchor for: 3. Session Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 3. Session Layer</h3> 
+
+<p>Establish, Manage, and terminate session connections between end-user applications.</p>
+<p>More importantly, things like token management, synchronization, authentication, authorization are the responsibilities of this layer.</p>
+<p>We can say, this layer is important for security and synchronization.</p>
+<p>Note: In a TCP/IP model, the browser bake in all the above three layers functionalities into just one layer called the application layer.</p>
+
+
+
+
+
+  <h3 id="4-transport-layer"><a class="anchor" href="#4-transport-layer" title='Anchor for: 4. Transport Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 4. Transport Layer</h3> 
+
+<p><strong>Segmentation</strong>:
+Data is broken down into segments(small pieces) and sent over the network.</p>
 <ul>
-<li><em>Translation</em> - From Unicode(text) to binary.</li>
-<li><em>Compression</em> - Usage of an algorithm like Huffman encoding to compress binary data</li>
-<li><em>Encryption</em> - Passwords etc (SSL)
-&hellip; and many more
-All of this buzz happens at the presentation layer. Perfect naming for the layer, lol!</li>
-</ul>
-
-
-
-
-
-  <h5 id="3-session-layer"><a class="anchor" href="#3-session-layer" title='Anchor for: 3. Session Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 3. Session Layer</h5> 
-
-<p>Establish, Manage, and terminate connections between services. Examples: Authorization, Authentication, Sessions.</p>
-<p>Note: Did you ever observe that modern browsers provide functionalities of all the above layers?</p>
-
-
-
-
-
-  <h5 id="4-transport-layer"><a class="anchor" href="#4-transport-layer" title='Anchor for: 4. Transport Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 4. Transport Layer</h5> 
-
-<ul>
 <li>
-<p><em>Segmentation</em>: data is broken down into segments and sent over the network.</p>
+<p><strong>Flow Control</strong>:
+Devices may have different networking capabilities and maybe one device can operate faster(like send data at 100mbps) than the other(10mbps). Well, the transport layer takes care of this problem. We will explore how later.</p>
 </li>
 <li>
-<p><em>Flow Control</em>: devices may have different networking capabilities and maybe one device can operate faster(like send data at 100mbps) than the other(10mbps). Well, the transport layer takes care of this problem. We will know how soon, promise : )</p>
+<p><strong>Error Control</strong>:
+While transferring segments, some segments may get lost! Again, the transport layer got our back. It uses checksums to find such errors in transmission.</p>
 </li>
 <li>
-<p><em>Error Control</em>: while transferring segments, some segments may get lost! Again, the transport layer got our back. It uses checksums to find such errors in transmission.</p>
-</li>
-<li>
-<p><em>Port numbers</em>: Many applications on our device may be using the internet. The segments may get confused when they reach the device as they don&rsquo;t know their destination application. To avoid this confusion, we assign port numbers to applications as well as to segments before sending them from the source. So when a segment reaches a destination device it knows which application it should go to.</p>
+<p><strong>Port numbers</strong>:
+The segments may get confused when they reach the destination device as they don&rsquo;t know their destination application. To avoid this confusion, we assign port numbers to segments before sending them from the source. So when a segment reaches a destination device it knows which application it should go to.</p>
 </li>
 </ul>
-<p>Finally a segment looks like this (source port + destination port + sequence number + acknowledgment + length) Wireshark example: Src Port: 6648, Dst Port: 443, Seq: 24, Ack: 251, Len: 23</p>
+<p>Finally, a segment looks like this
+Segment = (source port + destination port + sequence number + acknowledgment + length)
+Wireshark example: Src Port: 6648, Dst Port: 443, Seq: 24, Ack: 251, Len: 23</p>
 
 
 
 
 
-  <h5 id="5-network-layer"><a class="anchor" href="#5-network-layer" title='Anchor for: 5. Network Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 5. Network Layer</h5> 
+  <h3 id="5-network-layer"><a class="anchor" href="#5-network-layer" title='Anchor for: 5. Network Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 5. Network Layer</h3> 
 
-<p>After segments are made we attach some more information to the segment that is the source IP and destination IP. Just like the port number which helps segments to reach a particular application on the destination device, IP address is helpful in reaching a particular device on the network.</p>
-<p>segment + source and destination IP is called packet. IP address is just 32 bits which can uniquely determine about 4294967296 devices, but I&rsquo;m sure there are more devices than that number</p>
-<p>As there can be many devices on your network like your phone, pc, laptop. Each of them has a unique address and thus the network layer takes care of it. Make sense? cool.</p>
-<p><em>IP(Internet Protocol)</em> is again just unique over a network but not on the whole internet. We will know more about it in further blogs.</p>
+<p>After segments are made we attach some more information to the segment, this includes the source IP and destination IP.</p>
+<p>Just like the port number which helps segments to reach a particular application on the destination device, IP addresses help reach a particular device on the network.</p>
+<p>(segment + source and destination IP) together is called a packet. An IP address is just 32 bits which can uniquely determine about 4294967296 devices, but there are more devices than that number on the internet and that&rsquo;s where IPV6 pitches in.</p>
+<p><strong>IP(Internet Protocol)</strong> is again just unique over a local network but not on the whole internet. Just remember this, we will know more about it in further blogs.</p>
 <p>Routing, DNS, Masking are also functionalities provided by this layer.</p>
-<p><em>Routing</em>: helps in the path determination of packet. DNS: it is a map of key-value pairs. example: <a href="http://www.google.com">www.google.com</a> may also have an IP(like 192.168.32.3 and changing) but who can remember it all the time? so <a href="http://www.google.com">www.google.com</a> is mapped to some IP address for ease.</p>
+<p><strong>Routing</strong>: helps in the path determination of packet. i.e. how the packet should reach from source to destination and what routes/hops it should take over the network.</p>
+<p><strong>DNS</strong>: it is a map of key-value pairs. example: <a href="http://www.google.com">www.google.com</a>(key):192.168.32.3(value). Instead of us remembering all the IP addresses of different websites, we have DNS to rescue. For example, <a href="http://www.google.com">www.google.com</a> is resolved to an IP from the DNS server when we make a request.</p>
 
 
 
 
 
-  <h5 id="6-data-link-layer"><a class="anchor" href="#6-data-link-layer" title='Anchor for: 6. Data Link Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 6. Data Link Layer</h5> 
+  <h3 id="6-data-link-layer"><a class="anchor" href="#6-data-link-layer" title='Anchor for: 6. Data Link Layer.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 6. Data Link Layer</h3> 
 
-<p>As we already discussed IP addresses are just unique over the network but not over the internet we need one more level of uniqueness(remember there are millions of devices!). We use the MAC address which is 48 bits! and every device which has networking capabilities have their own unique mac address on the entire internet. phew!!</p>
-<p>Now, the frame is a combination of packet + source and destination mac addresses + some extra tail data(some more checksum to avoid data loss at this level).</p>
+<p>As we already discussed IP addresses are just unique over the network but not over the internet, we need one more level of uniqueness(remember there are millions of devices!). We use the MAC address which is 48 bits! and every device which has networking capabilities is manufactured with its unique mac address on the entire internet. phew!!</p>
+<p>Now finally, we have something we call a frame, a combination of packet + source and destination mac addresses + some extra tail data(like some more checksum to avoid data loss at this level).</p>
 <p>some more functionalities provided by this layer are:</p>
 <ul>
-<li><em>Access to media</em>: Determination of media for transfers (wired, wireless, optical, etc)</li>
-<li><em>Media-Access Control</em>: avoiding collision over the media, mac address takes care of this.
-Error detection: tail data is used to perform checksum here. Read more about checksum</li>
-</ul>
-
-
-
-
-
-  <h5 id="7-physical-layer"><a class="anchor" href="#7-physical-layer" title='Anchor for: 7. Physical Layer:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 7. Physical Layer:</h5> 
-
-<p>Bit level data transfer happens at this layer, i.e bits are converted into some form like signals, light flashes or radio signals and then transmitted. We won&rsquo;t discuss much of physical layer as I don&rsquo;t think it is that important for Software Engineering. If you are interested in exploring, be my guest.</p>
-<ul>
 <li>
-<p>Transmission Media:</p>
-<ul>
-<li><em>Guided</em> - There is physical medium like wires(co-axial, twisted pair cables) on which transmission takes place.</li>
-<li><em>Unguided</em> - Medium of transfer is air, examples are Wifi, infrared and radio signals.</li>
-</ul>
+<p><strong>Access to media</strong>: Determination of media for transfers (wired, wireless, optical, etc)</p>
 </li>
 <li>
-<p>Transmission Modes:
+<p><strong>Media-Access Control</strong>: avoiding collision over the media.</p>
+</li>
+<li>
+<p><strong>Error detection</strong>: tail data is used to perform checksum here.</p>
+</li>
+</ul>
+
+
+
+
+
+  <h3 id="7-physical-layer"><a class="anchor" href="#7-physical-layer" title='Anchor for: 7. Physical Layer:.'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> 7. Physical Layer:</h3> 
+
+<p>Bit-level data transfer happens at this layer, i.e bits of frames are converted into some form of signals. Ex: light flashes or radio signals and then transmitted.</p>
+<p>We won&rsquo;t discuss much of the physical layer as I don&rsquo;t think it is that important for Software Engineering. If you are interested in exploring, be my guest.</p>
+<p><strong>Transmission Media</strong>: What media to use to transport data?</p>
+<ul>
+<li>
+<p><em>Guide</em>: There is a physical medium like wires(co-axial, twisted pair cables) on which transmission takes place.</p>
+</li>
+<li>
+<p><em>Unguided</em>: Medium of transfer is air, examples are Wifi, infrared and radio signals.</p>
+</li>
+</ul>
+<p><strong>Transmission Modes</strong>:
 When two devices are connected over a medium we can have three modes of transmission</p>
 <ul>
-<li><em>Simplex</em>: Data can flow only in one direction.</li>
-<li><em>Half-duple</em>: Data can flow in both directions but not at the same time.</li>
-<li><em>Full-duplex</em>: Data can flow in both directions and simultaneously</li>
-</ul>
+<li>
+<p><em>Simplex</em>: Data can flow only in one direction.</p>
+</li>
+<li>
+<p><em>Half-duple</em>: Data can flow in both directions but not at the same time.</p>
+</li>
+<li>
+<p><em>Full-duplex</em>: Data can flow in both directions and simultaneously</p>
 </li>
 </ul>
 <p>I would highly recommend you to read about Manchester encoding and differential Manchester encoding to get an understanding of how signals can carry bit information.</p>
-<p>Finally, data reaches from the application layer to the physical layer and then sent over to another device. Now data is decoded backward. i.e going up from the physical layer to the application layer. It is just amazon delivery. Packing and boxing everything to unboxing. Just relate and you will be surprised. We will dive deep soon, hopefully! See you again!</p>
-<p>Visit my personal blog at: <a href="https://rahilrehan.github.io/">https://rahilrehan.github.io/</a> 🙈</p>
+<p>Data is processed sequentially from the application layer to the physical layer and then sent over to another device. Now data is decodedbackwardsd. i.e data is decoded from the physical layer to the application layer.</p>
+<p>It is just like amazon delivery, packing the product and delivering it to the customer and when the customer receives the product they unbox just relate and you will be surprised. We will dive deep soon, hopefully! See you again!</p>
+<p>Visit my blog at: <a href="https://rahilrehan.github.io/">https://rahilrehan.github.io/</a> 🙈
+And follow me on Twitter: <a href="https://twitter.com/rahil_rehan">https://twitter.com/rahil_rehan</a></p>
 
 
 
